@@ -4,3 +4,4 @@ results/report.docx
 results/video_slides/
 results/video_figs/
 *.mp4
+.omc/

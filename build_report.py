@@ -304,8 +304,7 @@ def build():
 
     R.h2("Code and Data")
     R.para("Code (harness, analysis, figure and report builders) and all run logs (JSONL with every prompt, completion and "
-           "database read) are kept with the submission; a public repository is not yet published and is available from the "
-           "author on request. Re-running analyze.py and figures.py on the logs regenerates every number, figure and table. "
+           "database read) are public at https://github.com/jejuolledev/swarm-false-done (MIT license). Re-running analyze.py and figures.py on the logs regenerates every number, figure and table. "
            "All data are synthetic. All code was written during the sprint (November 7–9, 2026, Korea time, inside the "
            "November 6–8 Anywhere-on-Earth sprint window); nothing is preexisting except the open model weights.",
            align="left")

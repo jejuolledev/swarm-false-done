@@ -131,7 +131,7 @@ S.append((slide(12, "Limits", bullets=[
 S.append((slide(13, "Takeaway", "Audit whether agents act on their checks.", bullets=[
     "Not only whether they check: a CHECK in the log is not a stop.",
     "Put a cheap non-LLM state check at hand-offs where the truth can be queried.",
-    "Code and full JSONL logs: available from the author on request (jejuolleapps@gmail.com)."]), 15))
+    "Code and full JSONL logs: github.com/jejuolledev/swarm-false-done"]), 15))
 
 # ---- encode: each slide as a still, short crossfades avoided (plain cuts)
 lst = os.path.join(SL, "list.txt")
