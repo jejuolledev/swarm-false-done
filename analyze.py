@@ -1,6 +1,6 @@
 """Regenerate every number, the figure and the table used in the report.
 
-Usage:  .venv/bin/python -I analyze.py runs/main_1108 out_dir [runs/excuse_1108] [runs/robust_1109]
+Usage:  .venv/bin/python -I analyze.py runs/main_1108 out_dir [runs/excuse_1108] [runs/robust_1109] [runs/subtle_1109]
 Reads only results_*.jsonl and log_*.jsonl written by harness.py.
 Writes out_dir/numbers.json, out_dir/fig1.png, out_dir/table_full.md.
 """
@@ -10,6 +10,7 @@ from collections import defaultdict
 RUN, OUT = sys.argv[1], sys.argv[2]
 EXC = sys.argv[3] if len(sys.argv) > 3 else None
 ROB = sys.argv[4] if len(sys.argv) > 4 else None
+SUB = sys.argv[5] if len(sys.argv) > 5 else None
 os.makedirs(OUT, exist_ok=True)
 
 SHORT = {"Qwen2.5-0.5B-Instruct": "Qwen2.5-0.5B",
@@ -50,8 +51,9 @@ N = {}
 
 def put(key, k, n):
     p, lo, hi = wilson(k, n)
-    N[key] = {"k": k, "n": n, "pct": round(100 * p, 1) if n else None,
-              "lo": round(100 * lo, 1) if n else None, "hi": round(100 * hi, 1) if n else None}
+    # stored unrounded (4 decimals); the report rounds once when printing
+    N[key] = {"k": k, "n": n, "pct": round(100 * p, 4) if n else None,
+              "lo": round(100 * lo, 4) if n else None, "hi": round(100 * hi, 4) if n else None}
 
 
 def sel(m=None, c=None, faults=None, extra=None):
@@ -184,8 +186,89 @@ if ROB:
     N["rob_total_episodes"] = sum(N[f"rob_{vn}_episodes"] for vn in ("multiturn", "para1", "para2"))
     N["rob_unparsed_total"] = sum(N[f"rob_{vn}_unparsed"] for vn in ("multiturn", "para1", "para2"))
 
+# ------------------------------------------------------------------ distinct post-lookup prompts
+# In fresh / para1 / para2 the post-lookup prompt does not contain the busy note, so tool and tool_busy
+# give the same prompt (and, greedy, the same answer) for a given (model, fault, seed). Count each once.
+# In multiturn the busy note stays in the conversation, so tool and tool_busy are different prompts.
+if ROB:
+    N["dist_conflicts"] = 0
+    for vname, rr in VARS.items():
+        for m in MODELS:
+            seen = {}
+            for r in rr:
+                if r["m"] != m or r["cond"] not in ("tool", "tool_busy") or not r["w2_checked"]:
+                    continue
+                key = (r["fault"], r["seed"]) + ((r["cond"],) if vname == "multiturn" else ())
+                val = (r["bad_charge"], r["false_halt"], r["w2"])
+                if key in seen and seen[key] != val:
+                    N["dist_conflicts"] += 1
+                seen[key] = val
+            for fl in FAULTY:
+                ks = [k for k in seen if k[0] == fl]
+                put(f"DIST|{vname}|{m}|{fl}|still_paid", sum(seen[k][0] for k in ks), len(ks))
+            ks = [k for k in seen if k[0] == "none"]
+            put(f"DIST|{vname}|{m}|false_halt_checked", sum(seen[k][1] for k in ks), len(ks))
+            ks = [k for k in seen if k[0] in FAULTY]
+            put(f"DIST|{vname}|{m}|all|still_paid", sum(seen[k][0] for k in ks), len(ks))
+    for m in MODELS:
+        for fl in FAULTY + ("all",):
+            ks = [N[f"DIST|{vn}|{m}|{fl}|still_paid"] for vn in ("fresh", "multiturn", "para1", "para2")]
+            put(f"DISTALL|{m}|{fl}|still_paid", sum(x["k"] for x in ks), sum(x["n"] for x in ks))
+            ks = [N[f"DIST|{vn}|{m}|{fl}|still_paid"] for vn in ("multiturn", "para1", "para2")]
+            put(f"DIST3|{m}|{fl}|still_paid", sum(x["k"] for x in ks), sum(x["n"] for x in ks))
+    # honest episodes: false halts per distinct prompt (para2 Nemotron)
+    for vname, rr in VARS.items():
+        for m in MODELS:
+            seen = {}
+            for r in rr:
+                if r["m"] == m and r["cond"] in ("tool", "tool_busy") and r["fault"] == "none":
+                    key = (r["seed"],) + ((r["cond"],) if vname == "multiturn" or not r["w2_checked"] else ())
+                    seen[key] = r["false_halt"]
+            put(f"DIST|{vname}|{m}|false_halt", sum(seen.values()), len(seen))
+
+# ------------------------------------------------------------------ subtle-mismatch run (dates)
+if SUB:
+    SFAULTS = ("qty_off1", "wrong_item", "wrong_date")
+    for vname in ("fresh", "multiturn"):
+        rr = [json.loads(l) for p in sorted(glob.glob(f"{SUB}/{vname}/results_*.jsonl")) for l in open(p)]
+        N[f"sub_{vname}_episodes"] = len(rr)
+        N[f"sub_{vname}_unparsed"] = sum(r["unparsed"] for r in rr)
+        for r in rr:
+            r["m"] = short(r["model"])
+        for m in MODELS:
+            mine = [r for r in rr if r["m"] == m]
+            if not mine:
+                continue
+            for fl in SFAULTS:
+                bad = [r for r in mine if r["fault"] == fl]
+                chk = [r for r in bad if r["w2_checked"]]
+                put(f"SUB|{vname}|{m}|{fl}|looked", len(chk), len(bad))
+                put(f"SUB|{vname}|{m}|{fl}|still_paid", sum(r["bad_charge"] for r in chk), len(chk))
+                put(f"SUB|{vname}|{m}|{fl}|bad_charge", sum(r["bad_charge"] for r in bad), len(bad))
+                put(f"SUB|{vname}|{m}|{fl}|bad_ship", sum(r["bad_ship"] for r in bad), len(bad))
+            good = [r for r in mine if r["fault"] == "none"]
+            put(f"SUB|{vname}|{m}|false_halt", sum(r["false_halt"] for r in good), len(good))
+            bad = [r for r in mine if r["fault"] in SFAULTS and r["w2_checked"]]
+            put(f"SUB|{vname}|{m}|all|still_paid", sum(r["bad_charge"] for r in bad), len(bad))
+    for m in MODELS:
+        ks = [N[f"SUB|{vn}|{m}|all|still_paid"] for vn in ("fresh", "multiturn") if f"SUB|{vn}|{m}|all|still_paid" in N]
+        if ks:
+            put(f"SUBALL|{m}|still_paid", sum(x["k"] for x in ks), sum(x["n"] for x in ks))
+    N["sub_total_episodes"] = sum(N.get(f"sub_{v}_episodes", 0) for v in ("fresh", "multiturn"))
+    N["sub_unparsed_total"] = sum(N.get(f"sub_{v}_unparsed", 0) for v in ("fresh", "multiturn"))
+
+# stops (= halts) on a missing row, used in prose
+for m in MODELS:
+    x = N[f"{m}|tool|missing|bad_charge"]; put(f"{m}|tool|missing|stopped", x["n"] - x["k"], x["n"])
+    if EXC:
+        x = N[f"EXC|{m}|tool|bad_charge"]; put(f"EXC|{m}|tool|stopped", x["n"] - x["k"], x["n"])
 gk = [N[f"{m}|gate|bad_charge"] for m in MODELS]
 put("GATE_ALL|bad_charge", sum(x["k"] for x in gk), sum(x["n"] for x in gk))
+gc = [r for r in res if r["cond"] == "gate" and r["fault"] in FAULTY]
+put("GATE_ALL|completed", sum(r["w2"] == "PROCEED" and r["w3"] == "PROCEED" for r in gc), len(gc))
+for c in CONDS:
+    vals = [N[f"{m}|{c}|calls_per_ep"] for m in MODELS]
+    N[f"CALLS|{c}|min"], N[f"CALLS|{c}|max"] = min(vals), max(vals)
 gk = [N[f"{m}|gate|gate_fixed"] for m in MODELS]
 put("GATE_ALL|gate_fixed", sum(x["k"] for x in gk), sum(x["n"] for x in gk))
 tk = [N[f"{m}|trust|bad_charge"] for m in MODELS]
@@ -220,36 +303,41 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-COL = {"Qwen2.5-0.5B": "#9aa5b1", "Qwen2.5-1.5B": "#4a6fa5", "Nemotron-30B-A3B": "#c0504d"}
-fig, axes = plt.subplots(1, 2, figsize=(7.2, 2.8), gridspec_kw={"width_ratios": [5, 4]})
+# colour = model identity only (neutral colours; red is reserved for bad outcomes in the other figures)
+COL = {"Qwen2.5-0.5B": "#9aa5b1", "Qwen2.5-1.5B": "#4a6fa5", "Nemotron-30B-A3B": "#7B5EA7"}
+plt.rcParams["font.family"] = "DejaVu Sans"
+fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.9), gridspec_kw={"width_ratios": [5, 4]})
 w = 0.26
 
 
-def bars(ax, keys, labels):
+def bars(ax, keys, labels, nlabel=False):
     for i, m in enumerate(MODELS):
-        xs, ys, lo, hi = [], [], [], []
+        xs, ys, lo, hi, ns = [], [], [], [], []
         for j, k in enumerate(keys):
             v = N[k.format(m=m)]
             if v["n"] == 0:
                 continue
-            xs.append(j + (i - 1) * w); ys.append(v["pct"])
+            xs.append(j + (i - 1) * w); ys.append(v["pct"]); ns.append(v["n"])
             lo.append(v["pct"] - v["lo"]); hi.append(v["hi"] - v["pct"])
         ax.bar(xs, ys, w, color=COL[m], label=m, yerr=[lo, hi], capsize=2, error_kw={"lw": 0.8})
-    ax.set_xticks(range(len(keys))); ax.set_xticklabels(labels, fontsize=7.5)
-    ax.set_ylim(0, 105); ax.tick_params(axis="y", labelsize=7.5)
+        if nlabel:
+            for x, y, n_, h in zip(xs, ys, ns, hi):
+                if n_ < 60:
+                    ax.text(x, min(y + h + 2, 104), f"n={n_}", ha="center", va="bottom", fontsize=8)
+    ax.set_xticks(range(len(keys))); ax.set_xticklabels(labels, fontsize=8)
+    ax.set_ylim(0, 118); ax.set_yticks([0, 25, 50, 75, 100]); ax.tick_params(axis="y", labelsize=8)
     ax.spines[["top", "right"]].set_visible(False)
 
 
-bars(axes[0], ["{m}|%s|bad_charge" % c for c in CONDS], CONDS)
-axes[0].set_title("(a) Billing agent charged on a false report", fontsize=8.5)
-axes[0].set_ylabel("% of episodes (95% Wilson CI)", fontsize=7.5)
+bars(axes[0], ["{m}|%s|bad_charge" % c for c in CONDS], [c.replace("tool_busy", "busy") for c in CONDS])
+axes[0].set_title("(a) Billing agent paid on a false report", fontsize=8.5)
+axes[0].set_ylabel("% of episodes", fontsize=8)
 right = ["{m}|tool|w2_checked_faulty", "{m}|tool|checked_then_charged",
          "{m}|tool_busy|w2_checked_faulty", "{m}|tool_busy|checked_then_charged"]
-bars(axes[1], right, ["tool:\nlooked up", "tool: looked up,\nstill charged",
-                      "busy:\nlooked up", "busy: looked up,\nstill charged"])
-axes[1].tick_params(axis="x", labelsize=6.5)
-axes[1].set_title("(b) Looking up vs. acting on what was found", fontsize=8.5)
-axes[1].legend(fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.32), ncol=3)
-fig.tight_layout()
+bars(axes[1], right, ["tool:\nlooked\nup", "tool:\nstill\npaid", "busy:\nlooked\nup", "busy:\nstill\npaid"], nlabel=True)
+axes[1].set_title("(b) Looked up vs. still paid", fontsize=8.5)
+h_, l_ = axes[1].get_legend_handles_labels()
+fig.legend(h_, l_, fontsize=8, frameon=False, loc="lower center", ncol=3)
+fig.tight_layout(rect=[0, 0.07, 1, 1])
 fig.savefig(OUT + "/fig1.png", dpi=220)
 print(json.dumps({k: N[k] for k in ("total_episodes", "seeds", "unparsed_total", "llm_calls_total", "per_model_episodes")}))

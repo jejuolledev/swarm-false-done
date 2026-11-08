@@ -18,7 +18,7 @@ inside the November 6-8 Anywhere-on-Earth window). Nothing here calls a paid API
 | Path | What it is |
 |---|---|
 | `harness.py` | The pipeline, faults, conditions, backends (transformers CPU, MLX Apple GPU). Logs every prompt, completion and DB read as JSONL. |
-| `run_main_1108.sh`, `run_excuse_1108.sh`, `run_robust_1109.sh` | The three experiment runs (one model at a time). |
+| `run_main_1108.sh`, `run_excuse_1108.sh`, `run_robust_1109.sh`, `run_subtle_1109.sh` | The four experiment runs (one model at a time). |
 | `analyze.py`, `figures.py` | Compute every number, figure and table from the logs -> `results/`. `make_video.py` builds the silent presentation video from them. |
 | `build_report.py`, `docbuild.py` | Fill the official Apart report template (docx) with the text and numbers from `results/numbers.json`. |
 | `check_report.py` | Checks that every count in the PDF matches `numbers.json`, section order, abstract length, page budget. |
@@ -27,10 +27,16 @@ inside the November 6-8 Anywhere-on-Earth window). Nothing here calls a paid API
 
 ## Reproduce
 
+Needs Python 3.12 or newer.
+
 ```bash
-python -m venv .venv && .venv/bin/pip install -r requirements.txt
-# re-analyse the shipped logs (seconds)
-.venv/bin/python -I analyze.py runs/main_1108 results runs/excuse_1108 runs/robust_1109
+python3 -m venv .venv
+# analysis only (re-count every number and redraw the figures from the shipped logs; no model download)
+.venv/bin/pip install matplotlib==3.11.2
+.venv/bin/python -I analyze.py runs/main_1108 results runs/excuse_1108 runs/robust_1109 runs/subtle_1109
+.venv/bin/python -I figures.py results runs/main_1108
+# full install (to re-run episodes and rebuild the PDF)
+.venv/bin/pip install -r requirements.txt
 # re-run episodes, e.g. one model and condition set
 HF_HUB_OFFLINE=0 .venv/bin/python -I harness.py --model Qwen/Qwen2.5-1.5B-Instruct --seeds 30 \
     --conds trust,tool,tool_busy,shown,gate --out runs/my_run
@@ -39,6 +45,8 @@ python -I harness.py --backend mlx --model mlx-community/NVIDIA-Nemotron-3.5-Lig
 ```
 
 Decoding is greedy, so an episode is determined by (model, condition, fault, seed, prompt variant).
+In the fresh and paraphrase variants the post-lookup prompt is the same in `tool` and `tool_busy`, so the report
+counts each distinct post-lookup prompt once (`DIST|...` keys in `results/numbers.json`).
 The run scripts use `.venv/bin/python` for the CPU runs and `$MLX_PYTHON` (default `python3`) for the Nemotron runs.
 Building the PDF needs the official template from the sprint's Guidelines tab (set `SWARM_TEMPLATE=/path/to/template.docx`) and LibreOffice; `./reproduce.sh` does the rest.
 

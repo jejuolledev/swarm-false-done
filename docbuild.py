@@ -116,16 +116,29 @@ class Report:
             pf.left_indent = Inches(indent)
         p.alignment = {"justify": WD_ALIGN_PARAGRAPH.JUSTIFY, "left": WD_ALIGN_PARAGRAPH.LEFT,
                        "center": WD_ALIGN_PARAGRAPH.CENTER}[align]
-        for tok in re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*)", text):
+        for tok in re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*|https?://[^\s;]+[^\s;.,)])", text):
             if not tok:
                 continue
-            if tok.startswith("**"):
+            if tok.startswith("http"):
+                self._link(p, tok, size, mono)
+            elif tok.startswith("**"):
                 r = p.add_run(tok[2:-2]); self._font(r, size, bold=True, mono=mono)
             elif tok.startswith("*"):
                 r = p.add_run(tok[1:-1]); self._font(r, size, italic=True, mono=mono)
             else:
                 r = p.add_run(tok); self._font(r, size, mono=mono)
         return p
+
+    def _link(self, p, url, size, mono=False):
+        """Real clickable hyperlink (exported by LibreOffice as a PDF link annotation)."""
+        rid = p.part.relate_to(url, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+                               is_external=True)
+        h = OxmlElement("w:hyperlink"); h.set(qn("r:id"), rid)
+        r = OxmlElement("w:r"); p._p.append(h); h.append(r)
+        run = docx.text.run.Run(r, p)
+        run.text = url
+        self._font(run, size, mono=mono)
+        run.font.color.rgb = RGBColor(0x1F, 0x4E, 0x99); run.font.underline = True
 
     def code(self, text, size=7.5):
         for line in text.split("\n"):
@@ -136,9 +149,10 @@ class Report:
         p = self._clone("body"); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_after = Pt(2); p.paragraph_format.keep_with_next = True
         p.add_run().add_picture(path, width=Inches(width_in))
-        self.para(caption, size=9, align="justify", space_after=8)
+        cp = self.para(caption, size=9, align="justify", space_after=8)
+        cp.paragraph_format.keep_together = True
 
-    def table(self, header, rows, widths, caption, size=8.5):
+    def table(self, header, rows, widths, caption, size=8.5, keep=False):
         self.para(caption, size=9, align="justify", space_after=3).paragraph_format.keep_with_next = True
         t = self.d.add_table(rows=1 + len(rows), cols=len(header))
         self.sect.addprevious(t._tbl)
@@ -156,6 +170,7 @@ class Report:
         tblPr.append(borders)
         trPr = t.rows[0]._tr.get_or_add_trPr()
         th = OxmlElement("w:tblHeader"); th.set(qn("w:val"), "true"); trPr.append(th)
+        nrows = len(rows) + 1
         for i, row in enumerate([header] + rows):
             for j, val in enumerate(row):
                 c = t.cell(i, j); c.width = Inches(widths[j])
@@ -163,11 +178,16 @@ class Report:
                 pp.paragraph_format.space_after = Pt(0); pp.paragraph_format.space_before = Pt(0)
                 pp.alignment = WD_ALIGN_PARAGRAPH.LEFT if j == 0 else WD_ALIGN_PARAGRAPH.CENTER
                 r = pp.add_run(str(val)); self._font(r, size, bold=(i == 0))
+                if keep and i < nrows - 1:
+                    pp.paragraph_format.keep_with_next = True
         self.para(" ", size=4, space_after=4)
         return t
 
-    def takeaway(self, text, label="What to do: "):
-        """One-line coloured takeaway box (navy fill, white text)."""
+    def takeaway(self, text, label="Implication: "):
+        """One-line coloured takeaway box (navy fill, white text), kept on the page of the text before it."""
+        prev = self.sect.getprevious()
+        if prev is not None and prev.tag == W + "p":
+            docx.text.paragraph.Paragraph(prev, self.d._body).paragraph_format.keep_with_next = True
         t = self.d.add_table(rows=1, cols=1)
         self.sect.addprevious(t._tbl)
         t.autofit = False
@@ -197,6 +217,14 @@ class Report:
     def page_break(self):
         p = self._clone("body")
         r = p.add_run(); br = OxmlElement("w:br"); br.set(qn("w:type"), "page"); r._r.append(br)
+
+    def footnote_text(self, old, new):
+        for rel in self.d.part.rels.values():
+            if rel.reltype.endswith("/footnotes"):
+                part = rel.target_part
+                xml = part.blob.decode("utf8")
+                if old in xml:
+                    part._blob = xml.replace(old, new).encode("utf8")
 
     def save(self, path):
         self.d.save(path)

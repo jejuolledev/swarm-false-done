@@ -70,6 +70,11 @@ body_pages = ref_page  # pages 2..ref_page (title page is page 1)
 if body_pages > 8:
     fail.append(f"body is {body_pages} pages (> 8)")
 
+# 5b. pooled counts that double-count identical post-lookup prompts must not appear (QA2, 2026-11-09)
+for bad in ("112/120", "232/240", "0/360", "44/60", "52/60"):
+    if re.search(r"(?<![\d/])" + re.escape(bad) + r"(?![\d])", text):
+        fail.append(f"double-counted figure in text: {bad}")
+
 # 6. no leftover template guidance
 for g in ("Summarize your project", "[Reference 1]", "How to use this template", "Author name", "[First contribution"):
     if g in text:

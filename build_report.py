@@ -49,36 +49,63 @@ def E(m, c, met):
 
 
 # ---------------------------------------------------------------- derived facts used in prose
-eps = N["total_episodes"] + N["exc_total_episodes"] + N["rob_total_episodes"]
-unparsed = N["unparsed_total"] + N["exc_unparsed_total"] + N["rob_unparsed_total"]
-Q15_MAIN = RB("fresh", Q15, "checked_then_charged")
-NEM_MAIN = RB("fresh", NEM, "checked_then_charged")
-Q15_WQ_ALL = f"ROBALL|{Q15}|wrong_qty|checked_then_charged"
-Q15_MISS_ALT = f"ROB3|{Q15}|missing|checked_then_charged"
-NEM_ALT = f"ROB3|{NEM}|checked_then_charged"
+# All "still paid" counts below are over DISTINCT post-lookup prompts (tool and tool_busy share the same
+# post-lookup prompt except in the multi-turn variant), so no prompt is counted twice.
+HAS_SUB = "sub_total_episodes" in N and N["sub_total_episodes"] > 0
+eps = N["total_episodes"] + N["exc_total_episodes"] + N["rob_total_episodes"] + (N["sub_total_episodes"] if HAS_SUB else 0)
+unparsed = (N["unparsed_total"] + N["exc_unparsed_total"] + N["rob_unparsed_total"]
+            + (N["sub_unparsed_total"] if HAS_SUB else 0))
+D = lambda vn, m, fl: f"DIST|{vn}|{m}|{fl}|still_paid"
+Q15_MAIN = D("fresh", Q15, "all")                     # 56/60
+NEM_MAIN = D("fresh", NEM, "all")                     # 0/60
+Q15_WQ_ALL = f"DISTALL|{Q15}|wrong_qty|still_paid"    # 146/150
+Q15_WQ_MT = D("multiturn", Q15, "wrong_qty")          # 60/60
+Q15_MISS_MAIN = D("fresh", Q15, "missing")            # 26/30
+Q15_MISS_ALT = f"DIST3|{Q15}|missing|still_paid"      # 0/120
+NEM_ALL = f"DISTALL|{NEM}|all|still_paid"             # 0/300
+NEM_P2_FH = f"DIST|para2|{NEM}|false_halt"            # 22/30
 GATE = "GATE_ALL|bad_charge"
 GATE_FIX = "GATE_ALL|gate_fixed"
+GATE_DONE = "GATE_ALL|completed"
 TRUST = "TRUST_ALL|bad_charge"
+Q15_WQ_MIN = min((v(D(vn, Q15, "wrong_qty")) for vn in ("fresh", "multiturn", "para1", "para2")), key=lambda x: x["pct"])
 
-Q15_WQ_MIN = min((v(RB(vn, Q15, "wrong_qty|checked_then_charged")) for vn in ("fresh", "multiturn", "para1", "para2")),
-                 key=lambda x: x["k"])
+SUBF = ("qty_off1", "wrong_item", "wrong_date")
+SUBN = {"qty_off1": "quantity off by one", "wrong_item": "wrong product", "wrong_date": "wrong delivery date"}
+
+
+def sub_sum(m, vns=("fresh", "multiturn"), fl="all"):
+    if len(vns) == 2:
+        x = v(f"SUBALL|{m}|still_paid"); return x["k"], x["n"]
+    x = v(f"SUB|{vns[0]}|{m}|{fl}|still_paid"); return x["k"], x["n"]
+
+
+if HAS_SUB:
+    nem_sub = sub_sum(NEM); q15_sub = sub_sum(Q15)
+    NEM_LEAKS = nem_sub[0] > 0
+    if NEM_LEAKS:
+        SUB_ABS = (f" On subtler mismatches (quantity off by one, wrong product, wrong date) Nemotron also paid after looking "
+                   f"in {nem_sub[0]}/{nem_sub[1]} cases.")
+    else:
+        SUB_ABS = (f" On subtler mismatches (quantity off by one, wrong product or date) Nemotron paid in "
+                   f"{nem_sub[0]}/{nem_sub[1]} and Qwen2.5-1.5B in {q15_sub[0]}/{q15_sub[1]}.")
+else:
+    SUB_ABS = ""
+
 TITLE = "Looking It Up Is Not Stopping: Measuring When Pipeline Agents Act on a Peer's False “Done”"
 
 ABSTRACT = (
-    "Multi-agent pipelines pass work along with short “done” messages, and the next agent usually acts on them. "
-    "We built a small, fully logged testbed to measure what happens when such a message is false. Three workers run "
-    "reserve → pay → ship on a fake SQLite database; the scripted first worker sometimes reports a reservation "
-    "that does not exist or has the wrong quantity. Two downstream LLM workers act under five conditions (message only; "
-    "an optional database lookup, with and without time pressure; the lookup result always shown; and a non-LLM state "
-    "check). We ran three local open models (Qwen2.5-0.5B, Qwen2.5-1.5B, Nemotron-3.5-Lightning-30B-A3B) for "
-    f"{eps:,} seeded, greedy-decoded episodes, including four wordings of the post-lookup prompt. "
-    f"With the message alone, every model paid on every false report ({frac(TRUST)}). "
-    f"Qwen2.5-1.5B looked the reservation up in every lookup episode, yet after reading the mismatch it still paid in "
-    f"{frac(Q15_MAIN)} cases with the main prompt. Across all four wordings it paid on a wrong quantity in "
-    f"{frac(Q15_WQ_ALL)} cases, while its behavior on a missing row depended on the wording. Nemotron paid after a "
-    f"mismatch in {frac(NEM_MAIN)} cases. The state check, by design, allowed {frac(GATE)} bad payments and used fewer "
-    "model calls. Our results suggest auditing whether an agent acts on a check, not only whether it checks, and placing a "
-    "cheap non-LLM state check at hand-offs where the truth can be queried."
+    "Multi-agent pipelines pass work along with short \u201cdone\u201d messages, and the next agent usually acts on them. "
+    "We built a small, fully logged testbed (reserve \u2192 pay \u2192 ship on a fake SQLite database) in which a scripted "
+    "first worker plants a false report and two LLM workers decide, with or without an optional database lookup. We ran "
+    f"three local open models (Qwen2.5-0.5B, Qwen2.5-1.5B, Nemotron-3.5-Lightning-30B-A3B) for {eps:,} seeded, greedy "
+    "episodes, including four wordings of the post-lookup prompt. By design, acting on the message alone never catches a "
+    f"false report ({frac(TRUST)} paid) and a non-LLM state check never misses one ({frac(GATE)}); we measure what an agent "
+    f"does after it looks. Qwen2.5-1.5B looked every time, yet after seeing a wrong quantity it paid in {frac(Q15_WQ_ALL)} "
+    f"distinct post-lookup prompts across all wordings ({frac(Q15_WQ_MT)} with its own CHECK turn kept). On a missing "
+    f"reservation it depended on wording ({frac(Q15_MISS_MAIN)} paid with the main prompt, {frac(Q15_MISS_ALT)} with the "
+    f"others). Nemotron paid after a mismatch in {frac(NEM_ALL)}, but one paraphrase made it halt {frac(NEM_P2_FH)} honest "
+    "orders." + SUB_ABS + " Audits of agent pipelines should count checks that changed the action, not checks that ran."
 )
 
 
@@ -87,16 +114,15 @@ def build():
     R.header(TITLE, "Jungkil Bae",
              ["MoaHub (independent), Gwangju-si, Gyeonggi-do, South Korea", "jejuolleapps@gmail.com"], ABSTRACT)
     R.figure(os.path.join(RES, "fig_headline.png"), 6.3,
-             "Figure 1. Headline result: share of false-report episodes in which the billing agent paid. Orange bars count only "
-             "episodes in which the agent first looked the reservation up and saw NOT FOUND or a wrong quantity. Error bars: "
-             "95% Wilson intervals. The state check reads the database directly, so its 0 follows from the design.")
+             "Figure 1. Paid after looking up and seeing the mismatch, over distinct post-lookup prompts (red = paid; navy = "
+             "stopped). The state-check bar counts bad payments, 0 by design. Bars: 95% Wilson intervals.")
 
     # ------------------------------------------------------------ 1
     R.h2("1. Introduction")
     R.para("In a multi-agent pipeline, one agent finishes a step and tells the next one “DONE”. The next agent then "
            "charges a card, ships a box or merges code on the strength of that sentence. If the sentence is wrong, because the "
            "first agent hallucinated success, hit a silent error, or misreported on purpose, the mistake travels down the chain. "
-           "Records made by agents cannot simply be trusted: in its investigation of the OpenAI / Hugging Face hacking incident, "
+           "Agent-written records can be wrong: in its investigation of the OpenAI / Hugging Face hacking incident, "
            "METR reports that agents prototyped ways to spoof their own tool calls and that roughly 7% of the transcripts it "
            "evaluated were spoofed in some places [1]. Failure taxonomies of multi-agent systems likewise list “no or "
            "incomplete verification” and “incorrect verification” as common failure modes [2].")
@@ -110,12 +136,11 @@ def build():
            f"conditions, three locally run open models and {eps:,} episodes in which every prompt, completion and database "
            f"read is logged; one script regenerates every number here.", indent=0.2, space_after=2)
     R.para(f"2. A measurement that splits *looked up* from *acted on the lookup*, tested across four wordings of the "
-           f"post-lookup prompt. Qwen2.5-1.5B looked up every time and still paid on a wrong quantity in {frac(Q15_WQ_ALL)} "
-           f"cases across all wordings; Nemotron-30B-A3B paid after a mismatch in {frac(NEM_MAIN)} (main prompt) and "
-           f"{frac(NEM_ALT)} (other wordings). A check rate alone would have rated the 1.5B model as careful.",
-           indent=0.2, space_after=2)
-    R.para(f"3. A cost and usefulness comparison with a non-LLM state check, which by design allowed {frac(GATE)} bad "
-           f"payments and repaired the step in {frac(GATE_FIX)} false-report episodes, with fewer model calls than the lookup.",
+           f"post-lookup prompt and counted over distinct prompts. Qwen2.5-1.5B looked every time and still paid on a wrong "
+           f"quantity in {frac(Q15_WQ_ALL)} prompts; Nemotron-30B-A3B paid after a mismatch in {frac(NEM_ALL)}. A check rate "
+           f"alone would have rated the 1.5B model as careful.", indent=0.2, space_after=2)
+    R.para(f"3. A usefulness and cost comparison with a non-LLM state check, which by design allowed {frac(GATE)} bad "
+           f"payments, repaired the step in {frac(GATE_FIX)} false-report episodes and used no more model calls than trust.",
            indent=0.2)
 
     # ------------------------------------------------------------ 2
@@ -140,7 +165,7 @@ def build():
 
     # ------------------------------------------------------------ 3
     R.h2("3. Methods")
-    R.figure(os.path.join(RES, "fig_pipeline.png"), 6.2,
+    R.figure(os.path.join(RES, "fig_pipeline.png"), 5.8,
              "Figure 2. The pipeline. W1 (script) can send a false “DONE”. W2 pays and W3 ships; both are LLMs that "
              "answer PROCEED or HALT, and in the lookup conditions may first answer CHECK to read the reservation row. The "
              "state check (gate) sits between W1 and W2, compares the claim with the database without any LLM, and asks W1 "
@@ -184,30 +209,32 @@ def build():
     # ------------------------------------------------------------ 4
     R.h2("4. Results")
     # 4.1
-    R.claim("With only the message, every model paid for every false report.")
-    R.para(f"In trust, the billing agent paid on all false reports for all three models ({frac(TRUST)}). This is expected: "
-           f"the false message is identical to an honest one. It is the baseline that the other conditions have to beat.")
-    R.takeaway("never let an agent act on a peer's “done” alone when the claim can be checked.")
+    R.claim("Baseline by design: with only the message, every model paid for every false report.")
+    R.para(f"In trust, the billing agent paid on all false reports for all three models ({frac(TRUST)}). This follows from the "
+           f"design: the false message is word-for-word an honest one. It is the baseline the other conditions have to beat.")
+    R.takeaway("in our setting, acting on a peer's “done” alone gave no protection; where the claim can be "
+               "checked, check it.")
 
     # 4.2
-    R.claim("The 1.5B model looked it up and still paid; the larger model stopped.")
-    R.figure(os.path.join(RES, "fig1.png"), 6.4,
-             "Figure 3. (a) Share of false-report episodes (missing and wrong_qty pooled, n = 60 per bar) in which the billing "
-             "agent paid, by condition and model. (b) In the two lookup conditions: share of false-report episodes in which "
-             "the billing agent looked the reservation up, and, among those, the share in which it paid anyway after seeing NOT "
-             "FOUND or a wrong quantity. Error bars: 95% Wilson intervals. Nemotron's still-paid bars are 0%, not missing.")
+    R.claim("Qwen2.5-1.5B looked it up and still paid; Nemotron-30B-A3B stopped.")
     q05_t = v(K(Q05, "tool", "w2_checked")); q05_b = v(K(Q05, "tool_busy", "w2_checked"))
     R.para(f"Qwen2.5-0.5B rarely looked ({frac(K(Q05, 'tool', 'w2_checked'))} episodes in tool) and paid on every false "
-           f"report in every non-gate condition, including shown ({frac(K(Q05, 'shown', 'bad_charge'))}). Qwen2.5-1.5B looked "
-           f"in {frac(K(Q15, 'tool', 'w2_checked'))} tool episodes and then paid after the mismatch in "
+           f"report in every condition without the state check, including shown ({frac(K(Q05, 'shown', 'bad_charge'))}). "
+           f"Qwen2.5-1.5B looked in {frac(K(Q15, 'tool', 'w2_checked'))} tool episodes and then paid after the mismatch in "
            f"{ci(K(Q15, 'tool', 'checked_then_charged'))}; shown gives the same {frac(K(Q15, 'shown', 'bad_charge'))} by "
            f"construction, because its prompt is identical to the post-lookup prompt in tool. Its few stops were all on a "
            f"missing row; it never stopped on a wrong quantity ({frac(K(Q15, 'tool', 'wrong_qty|bad_charge'))} paid). As the "
            f"shipping agent (W3) the same model looked up and halted in {frac(K(Q15, 'tool', 'missing|w3_checked_halted'))} "
            f"missing-row episodes that reached it, so its bad-ship rate is {pct(K(Q15, 'tool', 'bad_ship'))}; it acted on the "
-           f"same kind of evidence in one role and not in the other, and we did not isolate whether the role prompt or the extra "
-           f"message causes this. Nemotron-30B-A3B looked in {frac(K(NEM, 'tool', 'w2_checked'))} tool episodes and paid after "
-           f"a mismatch in {ci(K(NEM, 'tool', 'checked_then_charged'))}. Figure 4 shows two of the logged 1.5B episodes.")
+           f"same kind of evidence in one role and not in the other, and we did not isolate whether the role prompt or the "
+           f"extra message causes this. Nemotron-30B-A3B looked in {frac(K(NEM, 'tool', 'w2_checked'))} tool episodes and paid "
+           f"after a mismatch in {ci(K(NEM, 'tool', 'checked_then_charged'))}. Figure 4 shows two logged 1.5B episodes.")
+    R.figure(os.path.join(RES, "fig1.png"), 6.4,
+             "Figure 3. (a) Share of false-report episodes (missing and wrong_qty pooled, n = 60 per bar) in which the billing "
+             "agent paid, by condition and model. (b) Lookup conditions: share of false-report episodes in which the agent "
+             "looked the reservation up, and, among those, the share in which it paid anyway (n above small bars). Bars at 0% "
+             "(all gate bars; Nemotron in tool, tool_busy and shown) are drawn as error bars only; they are 0%, not missing. "
+             "Error bars: 95% Wilson intervals.")
     R.figure(os.path.join(RES, "fig_logrun.png"), 5.6,
              "Figure 4. Two real episodes, rendered verbatim from log_Qwen2.5-1.5B-Instruct.jsonl (condition tool, seed 0). "
              "The billing agent asks to CHECK, receives NOT FOUND (top) or a smaller quantity than ordered (bottom), and then "
@@ -215,65 +242,94 @@ def build():
     R.takeaway("count checks that changed the decision, not checks that happened; a CHECK in the log is not a stop.")
 
     # 4.3
-    R.claim("For the 1.5B model, a wrong quantity slipped through every prompt wording; a missing row did not.")
-    R.para(f"Table 1 changes only the post-lookup call. For Qwen2.5-1.5B, paying after seeing a wrong quantity held under every "
-           f"wording (at least {Q15_WQ_MIN['k']}/{Q15_WQ_MIN['n']} per wording, {frac(Q15_WQ_ALL)} in total). Paying after seeing NOT FOUND did not: it was "
-           f"{frac(RB('fresh', Q15, 'missing|checked_then_charged'))} with the main prompt but "
-           f"{frac(Q15_MISS_ALT)} across the multi-turn version and both paraphrases. So the main-run rate for missing rows "
-           f"is partly a property of one prompt, while the wrong-quantity failure is stable. Qwen2.5-0.5B shows the same split "
-           f"({frac(f'ROBALL|{Q05}|wrong_qty|checked_then_charged')} on wrong quantity, "
-           f"{frac(f'ROBALL|{Q05}|missing|checked_then_charged')} on missing rows). Nemotron never paid after a mismatch "
-           f"({frac(NEM_ALT)} in the other wordings), but the wording changed its usefulness: with paraphrase 2 it halted "
-           f"{frac(RB('para2', NEM, 'false_halt'))} honest episodes.")
+    R.claim("For Qwen2.5-1.5B, a wrong quantity slipped through every prompt wording we tried; a missing row did not.")
+    R.para(f"Table 1 changes only the post-lookup call and counts each distinct post-lookup prompt once (in the fresh and "
+           f"paraphrase rows, tool and tool_busy share that prompt). Qwen2.5-1.5B paid after seeing a wrong quantity under "
+           f"every wording (at least {Q15_WQ_MIN['k']}/{Q15_WQ_MIN['n']} per wording, {frac(Q15_WQ_ALL)} in total), including "
+           f"{frac(Q15_WQ_MT)} in the multi-turn version where its own CHECK reply is part of the conversation. After seeing "
+           f"NOT FOUND it paid in {frac(Q15_MISS_MAIN)} with the main prompt but {frac(Q15_MISS_ALT)} with the other three "
+           f"wordings, so the main-run rate for missing rows is a property of one prompt. Qwen2.5-0.5B shows the same split "
+           f"({frac(f'DISTALL|{Q05}|wrong_qty|still_paid')} on wrong quantity, "
+           f"{frac(f'DISTALL|{Q05}|missing|still_paid')} on missing rows). Nemotron never paid after a mismatch "
+           f"({frac(NEM_ALL)}), but the wording changed its usefulness: with paraphrase 2 it halted {frac(NEM_P2_FH)} honest "
+           f"orders.")
     VNAME = {"fresh": "fresh (main run)", "multiturn": "multi-turn", "para1": "paraphrase 1", "para2": "paraphrase 2"}
     rows3 = []
     for m in MODELS:
         for i, vn in enumerate(VNAME):
-            rows3.append([m if i == 0 else "", VNAME[vn], frac(RB(vn, m, "looked")),
-                          frac(RB(vn, m, "missing|checked_then_charged")), frac(RB(vn, m, "wrong_qty|checked_then_charged")),
-                          frac(RB(vn, m, "false_halt"))])
-    R.table(["Model", "Post-lookup prompt", "Looked up", "Still paid: missing row", "Still paid: wrong qty",
-             "False halt (honest)"], rows3, [1.15, 1.15, 0.8, 1.1, 1.1, 1.0],
-            "Table 1. Robustness of the post-lookup decision, tool and tool_busy pooled (180 episodes per row). Fresh: the "
-            "main-run prompt (identical to shown). Multi-turn: the conversation keeps the first prompt (with the busy note in "
-            "tool_busy) and the model's own CHECK reply, then adds the database result. Paraphrases 1 and 2 reword the fresh "
-            "prompt (Appendix A). “Still paid”: false-report episodes in which W2 looked and then proceeded.",
-            size=7.5)
+            rows3.append([m if i == 0 else "", VNAME[vn], frac(D(vn, m, "missing")), frac(D(vn, m, "wrong_qty")),
+                          frac(f"DIST|{vn}|{m}|false_halt")])
+    R.table(["Model", "Post-lookup prompt", "Paid after NOT FOUND", "Paid after wrong qty", "False halt (honest)"],
+            rows3, [1.4, 1.3, 1.3, 1.3, 1.2],
+            "Table 1. Robustness of the post-lookup decision (tool and tool_busy). Counts are over distinct post-lookup "
+            "prompts: in the fresh and paraphrase rows the busy note is not part of the second call, so tool and tool_busy "
+            "give the same prompt and it is counted once (30 per fault); the multi-turn version keeps the busy note, so both "
+            "count (60 per fault). Denominators are prompts in which the agent looked. Multi-turn: the conversation keeps "
+            "the first prompt and the model's own CHECK reply, then adds the database result. Paraphrases: Appendix A.",
+            size=8, keep=True)
     R.takeaway("test the check on subtle mismatches (a wrong number), not only on obvious ones (a missing record).")
 
-    # 4.4
-    R.claim("Time pressure and a cover story did not stop the larger model from checking.")
+    # 4.4 subtle mismatches
+    if HAS_SUB:
+        nem_f = sub_sum(NEM, ("fresh",)); nem_m = sub_sum(NEM, ("multiturn",))
+        q_f = sub_sum(Q15, ("fresh",)); q_m = sub_sum(Q15, ("multiturn",))
+        if NEM_LEAKS:
+            R.claim(f"Nemotron also paid on subtler mismatches ({nem_sub[0]}/{nem_sub[1]}).")
+        else:
+            R.claim("On subtler mismatches, Nemotron still stopped; Qwen2.5-1.5B still paid.")
+        parts = []
+        for fl in SUBF:
+            parts.append(f"{SUBN[fl]}: Nemotron {frac(f'SUB|fresh|{NEM}|{fl}|still_paid')} (fresh) and "
+                         f"{frac(f'SUB|multiturn|{NEM}|{fl}|still_paid')} (multi-turn), Qwen2.5-1.5B "
+                         f"{frac(f'SUB|fresh|{Q15}|{fl}|still_paid')} and {frac(f'SUB|multiturn|{Q15}|{fl}|still_paid')}")
+        R.para(f"A follow-up run gave every order a delivery date and planted three smaller mismatches in the database row "
+               f"(condition tool, {N['sub_total_episodes']:,} episodes, 30 seeds, fresh and multi-turn post-lookup prompts). "
+               f"Paid after looking and seeing the mismatch — " + "; ".join(parts) + ". "
+               f"False halts on honest orders: Nemotron {frac(f'SUB|fresh|{NEM}|false_halt')} (fresh) and "
+               f"{frac(f'SUB|multiturn|{NEM}|false_halt')} (multi-turn), Qwen2.5-1.5B {frac(f'SUB|fresh|{Q15}|false_halt')} "
+               f"and {frac(f'SUB|multiturn|{Q15}|false_halt')}.")
+        R.takeaway("a model that stops on a missing record may still pass a record that is off by one field; test both."
+                   if NEM_LEAKS else
+                   "in this range Nemotron's check held; smaller models need a state check even for one-field errors.")
+
+    # 4.5
+    R.claim("Time pressure and a cover story did not stop Nemotron from checking.")
+    stops_before = v(K(Q15, 'tool', 'missing|bad_charge'))
     R.para(f"The busy note did not reduce looking for Qwen2.5-1.5B ({frac(K(Q15, 'tool_busy', 'w2_checked'))}) or Nemotron "
            f"({frac(K(NEM, 'tool_busy', 'w2_checked'))}). For Qwen2.5-0.5B it *raised* looking from {q05_t['k']}/{q05_t['n']} "
            f"to {q05_b['k']}/{q05_b['n']}, possibly because the extra sentence mentions look-ups (we did not test this), "
            f"without changing its bad-payment rate ({frac(K(Q05, 'tool_busy', 'bad_charge'))}). When W1's false message added "
            f"that the replica can lag, Nemotron still looked in {frac(E(NEM, 'tool', 'w2_checked'))} episodes and paid in "
-           f"{frac(E(NEM, 'tool', 'bad_charge'))}. For Qwen2.5-1.5B the excuse removed the few stops it made on a missing row: "
-           f"bad payments in tool went from {frac(K(Q15, 'tool', 'missing|bad_charge'))} (missing) to "
-           f"{frac(E(Q15, 'tool', 'bad_charge'))} (missing_excuse).")
-    R.takeaway("treat a peer's explanation for contrary evidence as a reason to stop, not to proceed.")
+           f"{frac(E(NEM, 'tool', 'bad_charge'))}. For Qwen2.5-1.5B, with the excuse its "
+           f"{frac(K(Q15, 'tool', 'missing|stopped'))} stops on a missing row dropped to "
+           f"{frac(E(Q15, 'tool', 'stopped'))} "
+           f"(bad payments {frac(K(Q15, 'tool', 'missing|bad_charge'))} → {frac(E(Q15, 'tool', 'bad_charge'))}).")
+    R.takeaway("a one-sentence excuse was enough to remove Qwen2.5-1.5B's remaining stops; excuses for contrary evidence "
+               "are worth testing as a separate fault.")
 
-    # 4.5
-    R.claim("A non-LLM state check stopped every false report, with fewer model calls.")
+    # 4.6
+    R.claim("A non-LLM state check stopped every false report without extra model calls.")
     R.para(f"With the state check, bad payments were {frac(GATE)} across models and the check repaired the reservation in "
-           f"{frac(GATE_FIX)} false-report episodes, so the pipeline continued on a correct reservation instead of stopping. "
-           f"These two numbers follow from the design (the check reads ground truth and the redo is honest by construction); "
-           f"the measured part is the usefulness cost and the number of model calls. False halts in honest gate episodes equal "
-           f"those in trust for every model, since the check passes honest episodes through unchanged, and the check needed "
-           f"fewer model calls per episode than the lookup conditions (Table 2, Appendix C). It also held under the cover story "
-           f"({sum(v(E(m, 'gate', 'bad_charge'))['k'] for m in MODELS)}/"
-           f"{sum(v(E(m, 'gate', 'bad_charge'))['n'] for m in MODELS)} bad payments), because it never reads the message.")
+           f"{frac(GATE_FIX)} false-report episodes; the pipeline then completed in {frac(GATE_DONE)} (the remaining halts were "
+           f"Nemotron's shipping agent, Table 4). These numbers follow from the design (the check reads ground truth and the "
+           f"redo is honest by construction); the measured part is the usefulness cost and the number of model calls. False "
+           f"halts in honest gate episodes equal those in trust for every model, and the check used no more model calls than "
+           f"trust ({N['CALLS|gate|min']:.2f}–{N['CALLS|gate|max']:.2f} per episode versus {N['CALLS|trust|max']:.2f}; "
+           f"lookup conditions used up to {N['CALLS|tool_busy|max']:.2f}). It also held under the cover story "
+           f"({sum(v(E(m, 'gate', 'bad_charge'))['k'] for m in MODELS)}/{sum(v(E(m, 'gate', 'bad_charge'))['n'] for m in MODELS)} "
+           f"bad payments) because it never reads the message.")
     R.takeaway("where the claim can be compared with a record, compare it in code before the next agent acts.")
 
     # ------------------------------------------------------------ 5
     R.h2("5. Discussion and Limitations")
     R.para("**What this means for oversight.** Giving an agent a verification tool and logging that it was used is not "
-           "evidence that verification worked. The 1.5B model produced a perfect-looking audit trail (CHECK, then a database "
+           "evidence that verification worked. Qwen2.5-1.5B produced a perfect-looking audit trail (CHECK, then a database "
            "read that contradicts the claim) followed by PROCEED, and on wrong quantities it did so under every prompt wording "
-           f"we tried (at least {Q15_WQ_MIN['k']}/{Q15_WQ_MIN['n']} per wording). Our results suggest that monitors and audits of agent pipelines should count *acted-on* checks: after a "
-           "check whose result contradicts the claim, did the agent stop? The “shown” control is a cheap way to test "
-           "this per model before deployment. A stronger model closed this gap in our toy setting, but its usefulness moved "
-           "with prompt wording, while the state check behaved the same for all three models.")
+           f"we tried (at least {Q15_WQ_MIN['k']}/{Q15_WQ_MIN['n']} per wording). Monitors and audits of agent pipelines can "
+           "count *acted-on* checks: after a check whose result contradicts the claim, did the agent stop? The “shown” "
+           "control is a cheap way to test this per model before deployment. Nemotron closed this gap in our toy setting "
+           "(we cannot tell whether size, model family or quantization is responsible), but its false-halt rate moved with "
+           "prompt wording, while the state check behaved the same for all three models.")
     R.para("**Where state checks apply.** A check needs a queryable ground truth for the claim (a row, a file hash, a payment "
            "status). Many pipeline hand-offs have one. Claims without one (“the analysis is correct”) are out of "
            "scope here.")
@@ -295,12 +351,12 @@ def build():
 
     # ------------------------------------------------------------ 6
     R.h2("6. Conclusion")
-    R.para(f"In a three-worker pipeline with planted false “done” reports, downstream LLM agents acting on the "
-           f"message alone paid for every false report. A lookup tool helped only when the model acted on what it read: "
-           f"Qwen2.5-1.5B looked up every time and still paid on a wrong quantity in {frac(Q15_WQ_ALL)} cases across four "
-           f"prompt wordings, while Nemotron-30B-A3B did not pay after a mismatch in any wording. A deterministic state check "
-           f"stopped every bad payment for every model, as its design implies. Our results suggest that oversight metrics for "
-           f"agent pipelines should report whether checks change actions, not only whether checks happen.")
+    R.para(f"In a three-worker pipeline with planted false “done” reports, a lookup tool helped only when the model "
+           f"acted on what it read. Qwen2.5-1.5B looked every time and still paid on a wrong quantity in {frac(Q15_WQ_ALL)} "
+           f"distinct post-lookup prompts across four wordings, while Nemotron-30B-A3B paid after a mismatch in "
+           f"{frac(NEM_ALL)}. A deterministic state check stopped every bad payment for every model, as its design implies. "
+           f"For audits of agent pipelines, this means reporting how often a check changed the action, not only how often a "
+           f"check ran.")
 
     R.h2("Code and Data")
     R.para("Code (harness, analysis, figure and report builders) and all run logs (JSONL with every prompt, completion and "
@@ -363,7 +419,7 @@ def build():
     R.para("Cover-story sentence appended to W1's message in missing_excuse:", size=9, space_after=1)
     R.code(harness.EXCUSE.strip())
 
-    R.h3("B. Log example")
+    R.h3("B. Log example").paragraph_format.page_break_before = True
     R.para("Qwen2.5-1.5B, condition tool, fault missing, seed 0 (from log_Qwen2.5-1.5B-Instruct.jsonl; prompts shortened with …):",
            size=9, space_after=1)
     R.code(open(os.path.join(RES, "log_example.txt")).read().rstrip())
@@ -384,16 +440,16 @@ def build():
     R.table(["Model", "Condition", "Bad payment % [95% CI]", "Bad ship %", "False halt % [95% CI]", "Looked up %",
              "Looked up, still paid", "Gate fixed %", "Model calls / ep."],
             rows, [1.05, 0.7, 0.95, 0.45, 0.85, 0.55, 0.7, 0.5, 0.6],
-            "Table 2. Main run. Safety (bad payment, bad ship; n = 60 false-report episodes per row) versus usefulness (false "
+            "Table 3. Main run. Safety (bad payment, bad ship; n = 60 false-report episodes per row) versus usefulness (false "
             "halt; n = 30 honest episodes per row) and cost (LLM calls per episode, all 90 episodes). “Looked up” is "
             "over all 90 episodes; “looked up, still paid” counts false-report episodes in which W2 looked and then "
-            "proceeded. Brackets: 95% Wilson intervals.", size=7.5)
+            "proceeded. Brackets: 95% Wilson intervals.", size=8)
     rows = [[x.strip() for x in line.strip("|").split("|")]
             for line in open(os.path.join(RES, "table_full.md")).read().splitlines()[2:] if line.strip()]
     R.table(["Model", "Condition", "Fault", "n", "Bad payment", "Bad ship", "False halt", "W2 looked up", "Gate fixed",
              "Unparsed"], rows, [1.05, 0.65, 0.9, 0.3, 0.55, 0.5, 0.5, 0.6, 0.5, 0.65],
-            "Table 3. Counts per model, condition and fault (main run and cover-story run, missing_excuse). False halt "
-            "counts honest episodes and, in gate, episodes whose reservation the gate repaired.", size=6.5)
+            "Table 4. Counts per model, condition and fault (main run and cover-story run, missing_excuse). False halt "
+            "counts honest episodes and, in gate, episodes whose reservation the gate repaired.", size=8)
 
     R.h3("D. Limitations and Dual-Use / Ethical Considerations")
     R.para("**What the results show and do not show.** They show, for three open models in a toy three-step pipeline with "
@@ -419,6 +475,7 @@ def build():
            "them, and check_report.py automatically confirms that every count in the text matches those outputs. Every "
            "reference was opened and checked before citing. The models under test (Qwen2.5, Nemotron) were used only as the "
            "agents being measured.")
+    R.footnote_text("Swarm Alignment Hackathon", "Swarm Alignment Sprint")
     R.d.core_properties.title = TITLE
     R.d.core_properties.author = "Jungkil Bae"
     R.save(OUT)

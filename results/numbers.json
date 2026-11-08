@@ -17,14 +17,14 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|trust|bad_ship": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|trust|false_halt": {
@@ -32,28 +32,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|trust|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-0.5B|trust|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|trust|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|trust|checked_then_charged": {
   "k": 0,
@@ -66,7 +66,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|trust|w3_caught_after_bad_charge": {
@@ -74,20 +74,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|trust|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|trust|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|trust|missing|w3_checked_halted": {
@@ -95,13 +95,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|trust|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|trust|wrong_qty|w3_checked_halted": {
@@ -109,21 +109,21 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|trust|calls_per_ep": 2.0,
  "Qwen2.5-0.5B|tool|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|bad_ship": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|false_halt": {
@@ -131,41 +131,41 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool|w2_checked": {
   "k": 12,
   "n": 90,
-  "pct": 13.3,
-  "lo": 7.8,
-  "hi": 21.9
+  "pct": 13.3333,
+  "lo": 7.7947,
+  "hi": 21.8739
  },
  "Qwen2.5-0.5B|tool|w2_checked_faulty": {
   "k": 8,
   "n": 60,
-  "pct": 13.3,
-  "lo": 6.9,
-  "hi": 24.2
+  "pct": 13.3333,
+  "lo": 6.9141,
+  "hi": 24.1652
  },
  "Qwen2.5-0.5B|tool|w2_checked_honest": {
   "k": 4,
   "n": 30,
-  "pct": 13.3,
-  "lo": 5.3,
-  "hi": 29.7
+  "pct": 13.3333,
+  "lo": 5.3097,
+  "hi": 29.6813
  },
  "Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 8,
   "n": 8,
   "pct": 100.0,
-  "lo": 67.6,
+  "lo": 67.5592,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|unchecked_charged": {
   "k": 52,
   "n": 52,
   "pct": 100.0,
-  "lo": 93.1,
+  "lo": 93.1208,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|w3_caught_after_bad_charge": {
@@ -173,20 +173,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|tool|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|tool|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|missing|w3_checked_halted": {
@@ -194,13 +194,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool|wrong_qty|w3_checked_halted": {
@@ -208,21 +208,21 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool|calls_per_ep": 2.13,
  "Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|bad_ship": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|false_halt": {
@@ -230,41 +230,41 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool_busy|w2_checked": {
   "k": 54,
   "n": 90,
   "pct": 60.0,
-  "lo": 49.7,
-  "hi": 69.5
+  "lo": 49.6703,
+  "hi": 69.511
  },
  "Qwen2.5-0.5B|tool_busy|w2_checked_faulty": {
   "k": 36,
   "n": 60,
   "pct": 60.0,
-  "lo": 47.4,
-  "hi": 71.4
+  "lo": 47.3661,
+  "hi": 71.4305
  },
  "Qwen2.5-0.5B|tool_busy|w2_checked_honest": {
   "k": 18,
   "n": 30,
   "pct": 60.0,
-  "lo": 42.3,
-  "hi": 75.4
+  "lo": 42.3204,
+  "hi": 75.4094
  },
  "Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 36,
   "n": 36,
   "pct": 100.0,
-  "lo": 90.4,
+  "lo": 90.3581,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|unchecked_charged": {
   "k": 24,
   "n": 24,
   "pct": 100.0,
-  "lo": 86.2,
+  "lo": 86.2024,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|w3_caught_after_bad_charge": {
@@ -272,20 +272,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|tool_busy|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|tool_busy|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|missing|w3_checked_halted": {
@@ -293,13 +293,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool_busy|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|tool_busy|wrong_qty|w3_checked_halted": {
@@ -307,21 +307,21 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|tool_busy|calls_per_ep": 2.93,
  "Qwen2.5-0.5B|shown|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|shown|bad_ship": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|shown|false_halt": {
@@ -329,28 +329,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|shown|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-0.5B|shown|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|shown|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|shown|checked_then_charged": {
   "k": 0,
@@ -363,7 +363,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|shown|w3_caught_after_bad_charge": {
@@ -371,20 +371,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|shown|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|shown|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|shown|missing|w3_checked_halted": {
@@ -392,13 +392,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|shown|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|shown|wrong_qty|w3_checked_halted": {
@@ -406,7 +406,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|shown|calls_per_ep": 2.0,
  "Qwen2.5-0.5B|gate|bad_charge": {
@@ -414,42 +414,42 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|gate|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|gate|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|gate|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-0.5B|gate|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|gate|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|gate|checked_then_charged": {
   "k": 0,
@@ -463,7 +463,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-0.5B|gate|w3_caught_after_bad_charge": {
   "k": 0,
@@ -476,7 +476,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-0.5B|gate|missing|bad_charge": {
@@ -484,7 +484,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|gate|missing|w3_checked_halted": {
   "k": 0,
@@ -498,7 +498,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-0.5B|gate|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -512,14 +512,14 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|trust|bad_ship": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|trust|false_halt": {
@@ -527,28 +527,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|trust|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-1.5B|trust|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|trust|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|trust|checked_then_charged": {
   "k": 0,
@@ -561,7 +561,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|trust|w3_caught_after_bad_charge": {
@@ -569,20 +569,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|trust|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|trust|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|trust|missing|w3_checked_halted": {
@@ -590,13 +590,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|trust|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|trust|wrong_qty|w3_checked_halted": {
@@ -604,57 +604,57 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|trust|calls_per_ep": 2.0,
  "Qwen2.5-1.5B|tool|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|tool|bad_ship": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "Qwen2.5-1.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|tool|w2_checked": {
   "k": 90,
   "n": 90,
   "pct": 100.0,
-  "lo": 95.9,
+  "lo": 95.9064,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool|w2_checked_faulty": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool|w2_checked_honest": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|tool|unchecked_charged": {
   "k": 0,
@@ -666,36 +666,36 @@
  "Qwen2.5-1.5B|tool|w3_caught_after_bad_charge": {
   "k": 26,
   "n": 56,
-  "pct": 46.4,
-  "lo": 34.0,
-  "hi": 59.3
+  "pct": 46.4286,
+  "lo": 34.0199,
+  "hi": 59.2958
  },
  "Qwen2.5-1.5B|tool|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|tool|missing|bad_charge": {
   "k": 26,
   "n": 30,
-  "pct": 86.7,
-  "lo": 70.3,
-  "hi": 94.7
+  "pct": 86.6667,
+  "lo": 70.3187,
+  "hi": 94.6903
  },
  "Qwen2.5-1.5B|tool|missing|w3_checked_halted": {
   "k": 26,
   "n": 26,
   "pct": 100.0,
-  "lo": 87.1,
+  "lo": 87.1271,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool|wrong_qty|w3_checked_halted": {
@@ -703,57 +703,57 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|tool|calls_per_ep": 3.91,
  "Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|tool_busy|bad_ship": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "Qwen2.5-1.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|tool_busy|w2_checked": {
   "k": 90,
   "n": 90,
   "pct": 100.0,
-  "lo": 95.9,
+  "lo": 95.9064,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool_busy|w2_checked_faulty": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool_busy|w2_checked_honest": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|tool_busy|unchecked_charged": {
   "k": 0,
@@ -765,36 +765,36 @@
  "Qwen2.5-1.5B|tool_busy|w3_caught_after_bad_charge": {
   "k": 26,
   "n": 56,
-  "pct": 46.4,
-  "lo": 34.0,
-  "hi": 59.3
+  "pct": 46.4286,
+  "lo": 34.0199,
+  "hi": 59.2958
  },
  "Qwen2.5-1.5B|tool_busy|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|tool_busy|missing|bad_charge": {
   "k": 26,
   "n": 30,
-  "pct": 86.7,
-  "lo": 70.3,
-  "hi": 94.7
+  "pct": 86.6667,
+  "lo": 70.3187,
+  "hi": 94.6903
  },
  "Qwen2.5-1.5B|tool_busy|missing|w3_checked_halted": {
   "k": 26,
   "n": 26,
   "pct": 100.0,
-  "lo": 87.1,
+  "lo": 87.1271,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool_busy|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|tool_busy|wrong_qty|w3_checked_halted": {
@@ -802,50 +802,50 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|tool_busy|calls_per_ep": 3.91,
  "Qwen2.5-1.5B|shown|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|shown|bad_ship": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "Qwen2.5-1.5B|shown|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|shown|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-1.5B|shown|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|shown|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|shown|checked_then_charged": {
   "k": 0,
@@ -857,43 +857,43 @@
  "Qwen2.5-1.5B|shown|unchecked_charged": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "Qwen2.5-1.5B|shown|w3_caught_after_bad_charge": {
   "k": 26,
   "n": 56,
-  "pct": 46.4,
-  "lo": 34.0,
-  "hi": 59.3
+  "pct": 46.4286,
+  "lo": 34.0199,
+  "hi": 59.2958
  },
  "Qwen2.5-1.5B|shown|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|shown|missing|bad_charge": {
   "k": 26,
   "n": 30,
-  "pct": 86.7,
-  "lo": 70.3,
-  "hi": 94.7
+  "pct": 86.6667,
+  "lo": 70.3187,
+  "hi": 94.6903
  },
  "Qwen2.5-1.5B|shown|missing|w3_checked_halted": {
   "k": 0,
   "n": 26,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 12.9
+  "hi": 12.8729
  },
  "Qwen2.5-1.5B|shown|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|shown|wrong_qty|w3_checked_halted": {
@@ -901,7 +901,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|shown|calls_per_ep": 1.96,
  "Qwen2.5-1.5B|gate|bad_charge": {
@@ -909,42 +909,42 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|gate|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|gate|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|gate|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Qwen2.5-1.5B|gate|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|gate|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|gate|checked_then_charged": {
   "k": 0,
@@ -958,7 +958,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Qwen2.5-1.5B|gate|w3_caught_after_bad_charge": {
   "k": 0,
@@ -971,7 +971,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Qwen2.5-1.5B|gate|missing|bad_charge": {
@@ -979,7 +979,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|gate|missing|w3_checked_halted": {
   "k": 0,
@@ -993,7 +993,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Qwen2.5-1.5B|gate|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -1007,43 +1007,43 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|trust|bad_ship": {
   "k": 54,
   "n": 60,
   "pct": 90.0,
-  "lo": 79.9,
-  "hi": 95.3
+  "lo": 79.8505,
+  "hi": 95.3357
  },
  "Nemotron-30B-A3B|trust|false_halt": {
   "k": 3,
   "n": 30,
   "pct": 10.0,
-  "lo": 3.5,
-  "hi": 25.6
+  "lo": 3.46,
+  "hi": 25.6211
  },
  "Nemotron-30B-A3B|trust|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Nemotron-30B-A3B|trust|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|trust|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|trust|checked_then_charged": {
   "k": 0,
@@ -1056,28 +1056,28 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|trust|w3_caught_after_bad_charge": {
   "k": 6,
   "n": 60,
   "pct": 10.0,
-  "lo": 4.7,
-  "hi": 20.1
+  "lo": 4.6643,
+  "hi": 20.1495
  },
  "Nemotron-30B-A3B|trust|gate_fixed": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|trust|missing|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|trust|missing|w3_checked_halted": {
@@ -1085,13 +1085,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|trust|wrong_qty|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|trust|wrong_qty|w3_checked_halted": {
@@ -1099,7 +1099,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|trust|calls_per_ep": 2.0,
  "Nemotron-30B-A3B|tool|bad_charge": {
@@ -1107,41 +1107,41 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool|w2_checked": {
   "k": 90,
   "n": 90,
   "pct": 100.0,
-  "lo": 95.9,
+  "lo": 95.9064,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool|w2_checked_faulty": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool|w2_checked_honest": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -1149,7 +1149,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool|unchecked_charged": {
   "k": 0,
@@ -1170,14 +1170,14 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool|missing|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool|missing|w3_checked_halted": {
   "k": 0,
@@ -1191,7 +1191,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -1206,41 +1206,41 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool_busy|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool_busy|w2_checked": {
   "k": 90,
   "n": 90,
   "pct": 100.0,
-  "lo": 95.9,
+  "lo": 95.9064,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool_busy|w2_checked_faulty": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool_busy|w2_checked_honest": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -1248,7 +1248,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool_busy|unchecked_charged": {
   "k": 0,
@@ -1269,14 +1269,14 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|tool_busy|missing|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool_busy|missing|w3_checked_halted": {
   "k": 0,
@@ -1290,7 +1290,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|tool_busy|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -1305,42 +1305,42 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|shown|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|shown|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|shown|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Nemotron-30B-A3B|shown|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|shown|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|shown|checked_then_charged": {
   "k": 0,
@@ -1354,7 +1354,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|shown|w3_caught_after_bad_charge": {
   "k": 0,
@@ -1368,14 +1368,14 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|shown|missing|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|shown|missing|w3_checked_halted": {
   "k": 0,
@@ -1389,7 +1389,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|shown|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -1404,42 +1404,42 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|gate|bad_ship": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|gate|false_halt": {
   "k": 3,
   "n": 30,
   "pct": 10.0,
-  "lo": 3.5,
-  "hi": 25.6
+  "lo": 3.46,
+  "hi": 25.6211
  },
  "Nemotron-30B-A3B|gate|w2_checked": {
   "k": 0,
   "n": 90,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 4.1
+  "hi": 4.0936
  },
  "Nemotron-30B-A3B|gate|w2_checked_faulty": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|gate|w2_checked_honest": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|gate|checked_then_charged": {
   "k": 0,
@@ -1453,7 +1453,7 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "Nemotron-30B-A3B|gate|w3_caught_after_bad_charge": {
   "k": 0,
@@ -1466,7 +1466,7 @@
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "Nemotron-30B-A3B|gate|missing|bad_charge": {
@@ -1474,7 +1474,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|gate|missing|w3_checked_halted": {
   "k": 0,
@@ -1488,7 +1488,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "Nemotron-30B-A3B|gate|wrong_qty|w3_checked_halted": {
   "k": 0,
@@ -1501,16 +1501,16 @@
  "ALL|tool|w2_checked": {
   "k": 192,
   "n": 270,
-  "pct": 71.1,
-  "lo": 65.4,
-  "hi": 76.2
+  "pct": 71.1111,
+  "lo": 65.4386,
+  "hi": 76.1914
  },
  "ALL|tool_busy|w2_checked": {
   "k": 234,
   "n": 270,
-  "pct": 86.7,
-  "lo": 82.1,
-  "hi": 90.2
+  "pct": 86.6667,
+  "lo": 82.0934,
+  "hi": 90.2112
  },
  "first_prompt_identical_across_faults": true,
  "gate_false_halt_equals_trust": true,
@@ -1520,14 +1520,14 @@
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|trust|bad_ship": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|trust|w2_checked": {
@@ -1535,7 +1535,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|trust|checked_then_charged": {
   "k": 0,
@@ -1549,34 +1549,34 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|tool|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool|bad_ship": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool|gate_fixed": {
@@ -1584,34 +1584,34 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool_busy|bad_ship": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool_busy|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|tool_busy|gate_fixed": {
@@ -1619,20 +1619,20 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|shown|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|shown|bad_ship": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-0.5B|shown|w2_checked": {
@@ -1640,7 +1640,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|shown|checked_then_charged": {
   "k": 0,
@@ -1654,28 +1654,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|gate|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|gate|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|gate|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-0.5B|gate|checked_then_charged": {
   "k": 0,
@@ -1688,21 +1688,21 @@
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|trust|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|trust|bad_ship": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|trust|w2_checked": {
@@ -1710,7 +1710,7 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|trust|checked_then_charged": {
   "k": 0,
@@ -1724,13 +1724,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|tool|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool|bad_ship": {
@@ -1738,20 +1738,20 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|tool|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool|gate_fixed": {
@@ -1759,13 +1759,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool_busy|bad_ship": {
@@ -1773,20 +1773,20 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|tool_busy|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|tool_busy|gate_fixed": {
@@ -1794,13 +1794,13 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|shown|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Qwen2.5-1.5B|shown|bad_ship": {
@@ -1808,14 +1808,14 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|shown|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|shown|checked_then_charged": {
   "k": 0,
@@ -1829,28 +1829,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|gate|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|gate|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|gate|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Qwen2.5-1.5B|gate|checked_then_charged": {
   "k": 0,
@@ -1863,29 +1863,29 @@
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Nemotron-30B-A3B|trust|bad_charge": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Nemotron-30B-A3B|trust|bad_ship": {
   "k": 27,
   "n": 30,
   "pct": 90.0,
-  "lo": 74.4,
-  "hi": 96.5
+  "lo": 74.3789,
+  "hi": 96.54
  },
  "EXC|Nemotron-30B-A3B|trust|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|trust|checked_then_charged": {
   "k": 0,
@@ -1899,27 +1899,27 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -1927,34 +1927,34 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool|gate_fixed": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool_busy|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool_busy|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool_busy|w2_checked": {
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "EXC|Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -1962,35 +1962,35 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|tool_busy|gate_fixed": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|shown|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|shown|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|shown|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|shown|checked_then_charged": {
   "k": 0,
@@ -2004,28 +2004,28 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|gate|bad_charge": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|gate|bad_ship": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|gate|w2_checked": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "EXC|Nemotron-30B-A3B|gate|checked_then_charged": {
   "k": 0,
@@ -2038,7 +2038,7 @@
   "k": 30,
   "n": 30,
   "pct": 100.0,
-  "lo": 88.6,
+  "lo": 88.6487,
   "hi": 100.0
  },
  "rob_multiturn_episodes": 540,
@@ -2050,22 +2050,22 @@
  "ROB|fresh|Qwen2.5-0.5B|tool|looked": {
   "k": 8,
   "n": 60,
-  "pct": 13.3,
-  "lo": 6.9,
-  "hi": 24.2
+  "pct": 13.3333,
+  "lo": 6.9141,
+  "hi": 24.1652
  },
  "ROB|fresh|Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 8,
   "n": 8,
   "pct": 100.0,
-  "lo": 67.6,
+  "lo": 67.5592,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|tool|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|tool|false_halt": {
@@ -2073,27 +2073,27 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Qwen2.5-0.5B|tool_busy|looked": {
   "k": 36,
   "n": 60,
   "pct": 60.0,
-  "lo": 47.4,
-  "hi": 71.4
+  "lo": 47.3661,
+  "hi": 71.4305
  },
  "ROB|fresh|Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 36,
   "n": 36,
   "pct": 100.0,
-  "lo": 90.4,
+  "lo": 90.3581,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|tool_busy|false_halt": {
@@ -2101,27 +2101,27 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Qwen2.5-0.5B|pooled|checked_then_charged": {
   "k": 44,
   "n": 44,
   "pct": 100.0,
-  "lo": 92.0,
+  "lo": 91.9704,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|pooled|missing|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-0.5B|pooled|false_halt": {
@@ -2129,90 +2129,90 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Qwen2.5-0.5B|pooled|looked": {
   "k": 66,
   "n": 180,
-  "pct": 36.7,
-  "lo": 30.0,
-  "hi": 43.9
+  "pct": 36.6667,
+  "lo": 29.9738,
+  "hi": 43.9168
  },
  "ROB|fresh|Qwen2.5-1.5B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|fresh|Qwen2.5-1.5B|tool|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|fresh|Qwen2.5-1.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Qwen2.5-1.5B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|fresh|Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|fresh|Qwen2.5-1.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Qwen2.5-1.5B|pooled|checked_then_charged": {
   "k": 112,
   "n": 120,
-  "pct": 93.3,
-  "lo": 87.4,
-  "hi": 96.6
+  "pct": 93.3333,
+  "lo": 87.3949,
+  "hi": 96.5835
  },
  "ROB|fresh|Qwen2.5-1.5B|pooled|missing|checked_then_charged": {
   "k": 52,
   "n": 60,
-  "pct": 86.7,
-  "lo": 75.8,
-  "hi": 93.1
+  "pct": 86.6667,
+  "lo": 75.8348,
+  "hi": 93.0859
  },
  "ROB|fresh|Qwen2.5-1.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Qwen2.5-1.5B|pooled|false_halt": {
@@ -2220,20 +2220,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Qwen2.5-1.5B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|fresh|Nemotron-30B-A3B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -2241,27 +2241,27 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|tool|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Nemotron-30B-A3B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|fresh|Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -2269,132 +2269,132 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|tool_busy|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|fresh|Nemotron-30B-A3B|pooled|checked_then_charged": {
   "k": 0,
   "n": 120,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 3.1
+  "hi": 3.1019
  },
  "ROB|fresh|Nemotron-30B-A3B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|pooled|wrong_qty|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|pooled|false_halt": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|fresh|Nemotron-30B-A3B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool|looked": {
   "k": 8,
   "n": 60,
-  "pct": 13.3,
-  "lo": 6.9,
-  "hi": 24.2
+  "pct": 13.3333,
+  "lo": 6.9141,
+  "hi": 24.1652
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 4,
   "n": 8,
   "pct": 50.0,
-  "lo": 21.5,
-  "hi": 78.5
+  "lo": 21.5216,
+  "hi": 78.4784
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool_busy|looked": {
   "k": 36,
   "n": 60,
   "pct": 60.0,
-  "lo": 47.4,
-  "hi": 71.4
+  "lo": 47.3661,
+  "hi": 71.4305
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 19,
   "n": 36,
-  "pct": 52.8,
-  "lo": 37.0,
-  "hi": 68.0
+  "pct": 52.7778,
+  "lo": 37.0059,
+  "hi": 68.014
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 43,
   "n": 60,
-  "pct": 71.7,
-  "lo": 59.2,
-  "hi": 81.5
+  "pct": 71.6667,
+  "lo": 59.2327,
+  "hi": 81.4932
  },
  "ROB|multiturn|Qwen2.5-0.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Qwen2.5-0.5B|pooled|checked_then_charged": {
   "k": 23,
   "n": 44,
-  "pct": 52.3,
-  "lo": 37.9,
-  "hi": 66.2
+  "pct": 52.2727,
+  "lo": 37.9355,
+  "hi": 66.245
  },
  "ROB|multiturn|Qwen2.5-0.5B|pooled|missing|checked_then_charged": {
   "k": 1,
   "n": 22,
-  "pct": 4.5,
-  "lo": 0.8,
-  "hi": 21.8
+  "pct": 4.5455,
+  "lo": 0.8069,
+  "hi": 21.798
  },
  "ROB|multiturn|Qwen2.5-0.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|multiturn|Qwen2.5-0.5B|pooled|false_halt": {
@@ -2402,90 +2402,90 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Qwen2.5-0.5B|pooled|looked": {
   "k": 66,
   "n": 180,
-  "pct": 36.7,
-  "lo": 30.0,
-  "hi": 43.9
+  "pct": 36.6667,
+  "lo": 29.9738,
+  "hi": 43.9168
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool|bad_charge": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|multiturn|Qwen2.5-1.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Qwen2.5-1.5B|pooled|checked_then_charged": {
   "k": 60,
   "n": 120,
   "pct": 50.0,
-  "lo": 41.2,
-  "hi": 58.8
+  "lo": 41.1939,
+  "hi": 58.8061
  },
  "ROB|multiturn|Qwen2.5-1.5B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Qwen2.5-1.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|multiturn|Qwen2.5-1.5B|pooled|false_halt": {
@@ -2493,20 +2493,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Qwen2.5-1.5B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -2514,27 +2514,27 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -2542,132 +2542,132 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool_busy|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|multiturn|Nemotron-30B-A3B|pooled|checked_then_charged": {
   "k": 0,
   "n": 120,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 3.1
+  "hi": 3.1019
  },
  "ROB|multiturn|Nemotron-30B-A3B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|pooled|wrong_qty|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|pooled|false_halt": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|multiturn|Nemotron-30B-A3B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|para1|Qwen2.5-0.5B|tool|looked": {
   "k": 8,
   "n": 60,
-  "pct": 13.3,
-  "lo": 6.9,
-  "hi": 24.2
+  "pct": 13.3333,
+  "lo": 6.9141,
+  "hi": 24.1652
  },
  "ROB|para1|Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 4,
   "n": 8,
   "pct": 50.0,
-  "lo": 21.5,
-  "hi": 78.5
+  "lo": 21.5216,
+  "hi": 78.4784
  },
  "ROB|para1|Qwen2.5-0.5B|tool|bad_charge": {
   "k": 56,
   "n": 60,
-  "pct": 93.3,
-  "lo": 84.1,
-  "hi": 97.4
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
  },
  "ROB|para1|Qwen2.5-0.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para1|Qwen2.5-0.5B|tool_busy|looked": {
   "k": 36,
   "n": 60,
   "pct": 60.0,
-  "lo": 47.4,
-  "hi": 71.4
+  "lo": 47.3661,
+  "hi": 71.4305
  },
  "ROB|para1|Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 18,
   "n": 36,
   "pct": 50.0,
-  "lo": 34.5,
-  "hi": 65.5
+  "lo": 34.4743,
+  "hi": 65.5257
  },
  "ROB|para1|Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 42,
   "n": 60,
   "pct": 70.0,
-  "lo": 57.5,
-  "hi": 80.1
+  "lo": 57.4913,
+  "hi": 80.1018
  },
  "ROB|para1|Qwen2.5-0.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para1|Qwen2.5-0.5B|pooled|checked_then_charged": {
   "k": 22,
   "n": 44,
   "pct": 50.0,
-  "lo": 35.8,
-  "hi": 64.2
+  "lo": 35.8318,
+  "hi": 64.1682
  },
  "ROB|para1|Qwen2.5-0.5B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 22,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 14.9
+  "hi": 14.8655
  },
  "ROB|para1|Qwen2.5-0.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|para1|Qwen2.5-0.5B|pooled|false_halt": {
@@ -2675,111 +2675,111 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Qwen2.5-0.5B|pooled|looked": {
   "k": 66,
   "n": 180,
-  "pct": 36.7,
-  "lo": 30.0,
-  "hi": 43.9
+  "pct": 36.6667,
+  "lo": 29.9738,
+  "hi": 43.9168
  },
  "ROB|para1|Qwen2.5-1.5B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para1|Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 26,
   "n": 60,
-  "pct": 43.3,
-  "lo": 31.6,
-  "hi": 55.9
+  "pct": 43.3333,
+  "lo": 31.5724,
+  "hi": 55.8966
  },
  "ROB|para1|Qwen2.5-1.5B|tool|bad_charge": {
   "k": 26,
   "n": 60,
-  "pct": 43.3,
-  "lo": 31.6,
-  "hi": 55.9
+  "pct": 43.3333,
+  "lo": 31.5724,
+  "hi": 55.8966
  },
  "ROB|para1|Qwen2.5-1.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para1|Qwen2.5-1.5B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para1|Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 26,
   "n": 60,
-  "pct": 43.3,
-  "lo": 31.6,
-  "hi": 55.9
+  "pct": 43.3333,
+  "lo": 31.5724,
+  "hi": 55.8966
  },
  "ROB|para1|Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 26,
   "n": 60,
-  "pct": 43.3,
-  "lo": 31.6,
-  "hi": 55.9
+  "pct": 43.3333,
+  "lo": 31.5724,
+  "hi": 55.8966
  },
  "ROB|para1|Qwen2.5-1.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para1|Qwen2.5-1.5B|pooled|checked_then_charged": {
   "k": 52,
   "n": 120,
-  "pct": 43.3,
-  "lo": 34.8,
-  "hi": 52.3
+  "pct": 43.3333,
+  "lo": 34.8102,
+  "hi": 52.2701
  },
  "ROB|para1|Qwen2.5-1.5B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Qwen2.5-1.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 52,
   "n": 60,
-  "pct": 86.7,
-  "lo": 75.8,
-  "hi": 93.1
+  "pct": 86.6667,
+  "lo": 75.8348,
+  "hi": 93.0859
  },
  "ROB|para1|Qwen2.5-1.5B|pooled|false_halt": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Qwen2.5-1.5B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|para1|Nemotron-30B-A3B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para1|Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -2787,27 +2787,27 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|tool|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|tool|false_halt": {
   "k": 1,
   "n": 30,
-  "pct": 3.3,
-  "lo": 0.6,
-  "hi": 16.7
+  "pct": 3.3333,
+  "lo": 0.5909,
+  "hi": 16.6704
  },
  "ROB|para1|Nemotron-30B-A3B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para1|Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -2815,76 +2815,76 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|tool_busy|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|tool_busy|false_halt": {
   "k": 1,
   "n": 30,
-  "pct": 3.3,
-  "lo": 0.6,
-  "hi": 16.7
+  "pct": 3.3333,
+  "lo": 0.5909,
+  "hi": 16.6704
  },
  "ROB|para1|Nemotron-30B-A3B|pooled|checked_then_charged": {
   "k": 0,
   "n": 120,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 3.1
+  "hi": 3.1019
  },
  "ROB|para1|Nemotron-30B-A3B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|pooled|wrong_qty|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para1|Nemotron-30B-A3B|pooled|false_halt": {
   "k": 2,
   "n": 60,
-  "pct": 3.3,
-  "lo": 0.9,
-  "hi": 11.4
+  "pct": 3.3333,
+  "lo": 0.9189,
+  "hi": 11.3638
  },
  "ROB|para1|Nemotron-30B-A3B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|tool|looked": {
   "k": 8,
   "n": 60,
-  "pct": 13.3,
-  "lo": 6.9,
-  "hi": 24.2
+  "pct": 13.3333,
+  "lo": 6.9141,
+  "hi": 24.1652
  },
  "ROB|para2|Qwen2.5-0.5B|tool|checked_then_charged": {
   "k": 8,
   "n": 8,
   "pct": 100.0,
-  "lo": 67.6,
+  "lo": 67.5592,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|tool|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|tool|false_halt": {
@@ -2892,27 +2892,27 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para2|Qwen2.5-0.5B|tool_busy|looked": {
   "k": 36,
   "n": 60,
   "pct": 60.0,
-  "lo": 47.4,
-  "hi": 71.4
+  "lo": 47.3661,
+  "hi": 71.4305
  },
  "ROB|para2|Qwen2.5-0.5B|tool_busy|checked_then_charged": {
   "k": 36,
   "n": 36,
   "pct": 100.0,
-  "lo": 90.4,
+  "lo": 90.3581,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|tool_busy|bad_charge": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|tool_busy|false_halt": {
@@ -2920,27 +2920,27 @@
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para2|Qwen2.5-0.5B|pooled|checked_then_charged": {
   "k": 44,
   "n": 44,
   "pct": 100.0,
-  "lo": 92.0,
+  "lo": 91.9704,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|pooled|missing|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 22,
   "n": 22,
   "pct": 100.0,
-  "lo": 85.1,
+  "lo": 85.1345,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-0.5B|pooled|false_halt": {
@@ -2948,90 +2948,90 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Qwen2.5-0.5B|pooled|looked": {
   "k": 66,
   "n": 180,
-  "pct": 36.7,
-  "lo": 30.0,
-  "hi": 43.9
+  "pct": 36.6667,
+  "lo": 29.9738,
+  "hi": 43.9168
  },
  "ROB|para2|Qwen2.5-1.5B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-1.5B|tool|checked_then_charged": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|para2|Qwen2.5-1.5B|tool|bad_charge": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|para2|Qwen2.5-1.5B|tool|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para2|Qwen2.5-1.5B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-1.5B|tool_busy|checked_then_charged": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|para2|Qwen2.5-1.5B|tool_busy|bad_charge": {
   "k": 30,
   "n": 60,
   "pct": 50.0,
-  "lo": 37.7,
-  "hi": 62.3
+  "lo": 37.735,
+  "hi": 62.265
  },
  "ROB|para2|Qwen2.5-1.5B|tool_busy|false_halt": {
   "k": 0,
   "n": 30,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 11.4
+  "hi": 11.3513
  },
  "ROB|para2|Qwen2.5-1.5B|pooled|checked_then_charged": {
   "k": 60,
   "n": 120,
   "pct": 50.0,
-  "lo": 41.2,
-  "hi": 58.8
+  "lo": 41.1939,
+  "hi": 58.8061
  },
  "ROB|para2|Qwen2.5-1.5B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Qwen2.5-1.5B|pooled|wrong_qty|checked_then_charged": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Qwen2.5-1.5B|pooled|false_halt": {
@@ -3039,20 +3039,20 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Qwen2.5-1.5B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROB|para2|Nemotron-30B-A3B|tool|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Nemotron-30B-A3B|tool|checked_then_charged": {
@@ -3060,27 +3060,27 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|tool|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|tool|false_halt": {
   "k": 22,
   "n": 30,
-  "pct": 73.3,
-  "lo": 55.6,
-  "hi": 85.8
+  "pct": 73.3333,
+  "lo": 55.552,
+  "hi": 85.8173
  },
  "ROB|para2|Nemotron-30B-A3B|tool_busy|looked": {
   "k": 60,
   "n": 60,
   "pct": 100.0,
-  "lo": 94.0,
+  "lo": 93.9828,
   "hi": 100.0
  },
  "ROB|para2|Nemotron-30B-A3B|tool_busy|checked_then_charged": {
@@ -3088,162 +3088,1180 @@
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|tool_busy|bad_charge": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|tool_busy|false_halt": {
   "k": 22,
   "n": 30,
-  "pct": 73.3,
-  "lo": 55.6,
-  "hi": 85.8
+  "pct": 73.3333,
+  "lo": 55.552,
+  "hi": 85.8173
  },
  "ROB|para2|Nemotron-30B-A3B|pooled|checked_then_charged": {
   "k": 0,
   "n": 120,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 3.1
+  "hi": 3.1019
  },
  "ROB|para2|Nemotron-30B-A3B|pooled|missing|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|pooled|wrong_qty|checked_then_charged": {
   "k": 0,
   "n": 60,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 6.0
+  "hi": 6.0172
  },
  "ROB|para2|Nemotron-30B-A3B|pooled|false_halt": {
   "k": 44,
   "n": 60,
-  "pct": 73.3,
-  "lo": 61.0,
-  "hi": 82.9
+  "pct": 73.3333,
+  "lo": 60.9913,
+  "hi": 82.8674
  },
  "ROB|para2|Nemotron-30B-A3B|pooled|looked": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "ROBALL|Qwen2.5-0.5B|missing|checked_then_charged": {
   "k": 45,
   "n": 88,
-  "pct": 51.1,
-  "lo": 40.9,
-  "hi": 61.3
+  "pct": 51.1364,
+  "lo": 40.8655,
+  "hi": 61.3121
  },
  "ROBALL|Qwen2.5-0.5B|wrong_qty|checked_then_charged": {
   "k": 88,
   "n": 88,
   "pct": 100.0,
-  "lo": 95.8,
+  "lo": 95.8173,
   "hi": 100.0
  },
  "ROB3|Qwen2.5-0.5B|checked_then_charged": {
   "k": 89,
   "n": 132,
-  "pct": 67.4,
-  "lo": 59.0,
-  "hi": 74.8
+  "pct": 67.4242,
+  "lo": 59.035,
+  "hi": 74.828
  },
  "ROB3|Qwen2.5-0.5B|missing|checked_then_charged": {
   "k": 23,
   "n": 66,
-  "pct": 34.8,
-  "lo": 24.5,
-  "hi": 46.9
+  "pct": 34.8485,
+  "lo": 24.4759,
+  "hi": 46.8878
  },
  "ROBALL|Qwen2.5-1.5B|missing|checked_then_charged": {
   "k": 52,
   "n": 240,
-  "pct": 21.7,
-  "lo": 16.9,
-  "hi": 27.3
+  "pct": 21.6667,
+  "lo": 16.9229,
+  "hi": 27.3031
  },
  "ROBALL|Qwen2.5-1.5B|wrong_qty|checked_then_charged": {
   "k": 232,
   "n": 240,
-  "pct": 96.7,
-  "lo": 93.6,
-  "hi": 98.3
+  "pct": 96.6667,
+  "lo": 93.5615,
+  "hi": 98.3015
  },
  "ROB3|Qwen2.5-1.5B|checked_then_charged": {
   "k": 172,
   "n": 360,
-  "pct": 47.8,
-  "lo": 42.7,
-  "hi": 52.9
+  "pct": 47.7778,
+  "lo": 42.6686,
+  "hi": 52.9338
  },
  "ROB3|Qwen2.5-1.5B|missing|checked_then_charged": {
   "k": 0,
   "n": 180,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 2.1
+  "hi": 2.0895
  },
  "ROBALL|Nemotron-30B-A3B|missing|checked_then_charged": {
   "k": 0,
   "n": 240,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 1.6
+  "hi": 1.5754
  },
  "ROBALL|Nemotron-30B-A3B|wrong_qty|checked_then_charged": {
   "k": 0,
   "n": 240,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 1.6
+  "hi": 1.5754
  },
  "ROB3|Nemotron-30B-A3B|checked_then_charged": {
   "k": 0,
   "n": 360,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 1.1
+  "hi": 1.0558
  },
  "ROB3|Nemotron-30B-A3B|missing|checked_then_charged": {
   "k": 0,
   "n": 180,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 2.1
+  "hi": 2.0895
  },
  "rob_total_episodes": 1620,
  "rob_unparsed_total": 0,
+ "dist_conflicts": 0,
+ "DIST|fresh|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 18,
+  "n": 18,
+  "pct": 100.0,
+  "lo": 82.4121,
+  "hi": 100.0
+ },
+ "DIST|fresh|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 18,
+  "n": 18,
+  "pct": 100.0,
+  "lo": 82.4121,
+  "hi": 100.0
+ },
+ "DIST|fresh|Qwen2.5-0.5B|false_halt_checked": {
+  "k": 0,
+  "n": 18,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 17.5879
+ },
+ "DIST|fresh|Qwen2.5-0.5B|all|still_paid": {
+  "k": 36,
+  "n": 36,
+  "pct": 100.0,
+  "lo": 90.3581,
+  "hi": 100.0
+ },
+ "DIST|fresh|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 26,
+  "n": 30,
+  "pct": 86.6667,
+  "lo": 70.3187,
+  "hi": 94.6903
+ },
+ "DIST|fresh|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "DIST|fresh|Qwen2.5-1.5B|false_halt_checked": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|fresh|Qwen2.5-1.5B|all|still_paid": {
+  "k": 56,
+  "n": 60,
+  "pct": 93.3333,
+  "lo": 84.0746,
+  "hi": 97.3771
+ },
+ "DIST|fresh|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|fresh|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|fresh|Nemotron-30B-A3B|false_halt_checked": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|fresh|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 1,
+  "n": 22,
+  "pct": 4.5455,
+  "lo": 0.8069,
+  "hi": 21.798
+ },
+ "DIST|multiturn|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 22,
+  "n": 22,
+  "pct": 100.0,
+  "lo": 85.1345,
+  "hi": 100.0
+ },
+ "DIST|multiturn|Qwen2.5-0.5B|false_halt_checked": {
+  "k": 0,
+  "n": 22,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 14.8655
+ },
+ "DIST|multiturn|Qwen2.5-0.5B|all|still_paid": {
+  "k": 23,
+  "n": 44,
+  "pct": 52.2727,
+  "lo": 37.9355,
+  "hi": 66.245
+ },
+ "DIST|multiturn|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 60,
+  "n": 60,
+  "pct": 100.0,
+  "lo": 93.9828,
+  "hi": 100.0
+ },
+ "DIST|multiturn|Qwen2.5-1.5B|false_halt_checked": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Qwen2.5-1.5B|all|still_paid": {
+  "k": 60,
+  "n": 120,
+  "pct": 50.0,
+  "lo": 41.1939,
+  "hi": 58.8061
+ },
+ "DIST|multiturn|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Nemotron-30B-A3B|false_halt_checked": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 120,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 3.1019
+ },
+ "DIST|para1|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 0,
+  "n": 18,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 17.5879
+ },
+ "DIST|para1|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 18,
+  "n": 18,
+  "pct": 100.0,
+  "lo": 82.4121,
+  "hi": 100.0
+ },
+ "DIST|para1|Qwen2.5-0.5B|false_halt_checked": {
+  "k": 0,
+  "n": 18,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 17.5879
+ },
+ "DIST|para1|Qwen2.5-0.5B|all|still_paid": {
+  "k": 18,
+  "n": 36,
+  "pct": 50.0,
+  "lo": 34.4743,
+  "hi": 65.5257
+ },
+ "DIST|para1|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para1|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 26,
+  "n": 30,
+  "pct": 86.6667,
+  "lo": 70.3187,
+  "hi": 94.6903
+ },
+ "DIST|para1|Qwen2.5-1.5B|false_halt_checked": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para1|Qwen2.5-1.5B|all|still_paid": {
+  "k": 26,
+  "n": 60,
+  "pct": 43.3333,
+  "lo": 31.5724,
+  "hi": 55.8966
+ },
+ "DIST|para1|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para1|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para1|Nemotron-30B-A3B|false_halt_checked": {
+  "k": 1,
+  "n": 30,
+  "pct": 3.3333,
+  "lo": 0.5909,
+  "hi": 16.6704
+ },
+ "DIST|para1|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|para2|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 18,
+  "n": 18,
+  "pct": 100.0,
+  "lo": 82.4121,
+  "hi": 100.0
+ },
+ "DIST|para2|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 18,
+  "n": 18,
+  "pct": 100.0,
+  "lo": 82.4121,
+  "hi": 100.0
+ },
+ "DIST|para2|Qwen2.5-0.5B|false_halt_checked": {
+  "k": 0,
+  "n": 18,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 17.5879
+ },
+ "DIST|para2|Qwen2.5-0.5B|all|still_paid": {
+  "k": 36,
+  "n": 36,
+  "pct": 100.0,
+  "lo": 90.3581,
+  "hi": 100.0
+ },
+ "DIST|para2|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para2|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "DIST|para2|Qwen2.5-1.5B|false_halt_checked": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para2|Qwen2.5-1.5B|all|still_paid": {
+  "k": 30,
+  "n": 60,
+  "pct": 50.0,
+  "lo": 37.735,
+  "hi": 62.265
+ },
+ "DIST|para2|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para2|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para2|Nemotron-30B-A3B|false_halt_checked": {
+  "k": 22,
+  "n": 30,
+  "pct": 73.3333,
+  "lo": 55.552,
+  "hi": 85.8173
+ },
+ "DIST|para2|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DISTALL|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 37,
+  "n": 76,
+  "pct": 48.6842,
+  "lo": 37.7837,
+  "hi": 59.7113
+ },
+ "DIST3|Qwen2.5-0.5B|missing|still_paid": {
+  "k": 19,
+  "n": 58,
+  "pct": 32.7586,
+  "lo": 22.0833,
+  "hi": 45.5759
+ },
+ "DISTALL|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 76,
+  "n": 76,
+  "pct": 100.0,
+  "lo": 95.1886,
+  "hi": 100.0
+ },
+ "DIST3|Qwen2.5-0.5B|wrong_qty|still_paid": {
+  "k": 58,
+  "n": 58,
+  "pct": 100.0,
+  "lo": 93.7882,
+  "hi": 100.0
+ },
+ "DISTALL|Qwen2.5-0.5B|all|still_paid": {
+  "k": 113,
+  "n": 152,
+  "pct": 74.3421,
+  "lo": 66.8589,
+  "hi": 80.6253
+ },
+ "DIST3|Qwen2.5-0.5B|all|still_paid": {
+  "k": 77,
+  "n": 116,
+  "pct": 66.3793,
+  "lo": 57.3801,
+  "hi": 74.3285
+ },
+ "DISTALL|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 26,
+  "n": 150,
+  "pct": 17.3333,
+  "lo": 12.1121,
+  "hi": 24.186
+ },
+ "DIST3|Qwen2.5-1.5B|missing|still_paid": {
+  "k": 0,
+  "n": 120,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 3.1019
+ },
+ "DISTALL|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 146,
+  "n": 150,
+  "pct": 97.3333,
+  "lo": 93.3446,
+  "hi": 98.9582
+ },
+ "DIST3|Qwen2.5-1.5B|wrong_qty|still_paid": {
+  "k": 116,
+  "n": 120,
+  "pct": 96.6667,
+  "lo": 91.742,
+  "hi": 98.6962
+ },
+ "DISTALL|Qwen2.5-1.5B|all|still_paid": {
+  "k": 172,
+  "n": 300,
+  "pct": 57.3333,
+  "lo": 51.6786,
+  "hi": 62.8026
+ },
+ "DIST3|Qwen2.5-1.5B|all|still_paid": {
+  "k": 116,
+  "n": 240,
+  "pct": 48.3333,
+  "lo": 42.0873,
+  "hi": 54.6319
+ },
+ "DISTALL|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 150,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 2.497
+ },
+ "DIST3|Nemotron-30B-A3B|missing|still_paid": {
+  "k": 0,
+  "n": 120,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 3.1019
+ },
+ "DISTALL|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 150,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 2.497
+ },
+ "DIST3|Nemotron-30B-A3B|wrong_qty|still_paid": {
+  "k": 0,
+  "n": 120,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 3.1019
+ },
+ "DISTALL|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 300,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 1.2643
+ },
+ "DIST3|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 240,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 1.5754
+ },
+ "DIST|fresh|Qwen2.5-0.5B|false_halt": {
+  "k": 0,
+  "n": 56,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.4194
+ },
+ "DIST|fresh|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|fresh|Nemotron-30B-A3B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|multiturn|Qwen2.5-0.5B|false_halt": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|multiturn|Nemotron-30B-A3B|false_halt": {
+  "k": 0,
+  "n": 60,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.0172
+ },
+ "DIST|para1|Qwen2.5-0.5B|false_halt": {
+  "k": 0,
+  "n": 56,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.4194
+ },
+ "DIST|para1|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para1|Nemotron-30B-A3B|false_halt": {
+  "k": 1,
+  "n": 30,
+  "pct": 3.3333,
+  "lo": 0.5909,
+  "hi": 16.6704
+ },
+ "DIST|para2|Qwen2.5-0.5B|false_halt": {
+  "k": 0,
+  "n": 56,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 6.4194
+ },
+ "DIST|para2|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "DIST|para2|Nemotron-30B-A3B|false_halt": {
+  "k": 22,
+  "n": 30,
+  "pct": 73.3333,
+  "lo": 55.552,
+  "hi": 85.8173
+ },
+ "sub_fresh_episodes": 240,
+ "sub_fresh_unparsed": 0,
+ "SUB|fresh|Qwen2.5-1.5B|qty_off1|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|qty_off1|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|qty_off1|bad_charge": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|qty_off1|bad_ship": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_item|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_item|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_item|bad_charge": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_item|bad_ship": {
+  "k": 29,
+  "n": 30,
+  "pct": 96.6667,
+  "lo": 83.3296,
+  "hi": 99.4091
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_date|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_date|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_date|bad_charge": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|wrong_date|bad_ship": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Qwen2.5-1.5B|all|still_paid": {
+  "k": 90,
+  "n": 90,
+  "pct": 100.0,
+  "lo": 95.9064,
+  "hi": 100.0
+ },
+ "SUB|fresh|Nemotron-30B-A3B|qty_off1|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Nemotron-30B-A3B|qty_off1|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|qty_off1|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|qty_off1|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_item|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_item|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_item|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_item|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_date|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_date|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_date|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|wrong_date|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|fresh|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 90,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 4.0936
+ },
+ "sub_multiturn_episodes": 240,
+ "sub_multiturn_unparsed": 0,
+ "SUB|multiturn|Qwen2.5-1.5B|qty_off1|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|qty_off1|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|qty_off1|bad_charge": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|qty_off1|bad_ship": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_item|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_item|still_paid": {
+  "k": 4,
+  "n": 30,
+  "pct": 13.3333,
+  "lo": 5.3097,
+  "hi": 29.6813
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_item|bad_charge": {
+  "k": 4,
+  "n": 30,
+  "pct": 13.3333,
+  "lo": 5.3097,
+  "hi": 29.6813
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_item|bad_ship": {
+  "k": 4,
+  "n": 30,
+  "pct": 13.3333,
+  "lo": 5.3097,
+  "hi": 29.6813
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_date|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_date|still_paid": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_date|bad_charge": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|wrong_date|bad_ship": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Qwen2.5-1.5B|all|still_paid": {
+  "k": 64,
+  "n": 90,
+  "pct": 71.1111,
+  "lo": 61.036,
+  "hi": 79.4579
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|qty_off1|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|qty_off1|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|qty_off1|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|qty_off1|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_item|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_item|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_item|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_item|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_date|looked": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_date|still_paid": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_date|bad_charge": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|wrong_date|bad_ship": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|false_halt": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "SUB|multiturn|Nemotron-30B-A3B|all|still_paid": {
+  "k": 0,
+  "n": 90,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 4.0936
+ },
+ "SUBALL|Qwen2.5-1.5B|still_paid": {
+  "k": 154,
+  "n": 180,
+  "pct": 85.5556,
+  "lo": 79.677,
+  "hi": 89.9482
+ },
+ "SUBALL|Nemotron-30B-A3B|still_paid": {
+  "k": 0,
+  "n": 180,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 2.0895
+ },
+ "sub_total_episodes": 480,
+ "sub_unparsed_total": 0,
+ "Qwen2.5-0.5B|tool|missing|stopped": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "EXC|Qwen2.5-0.5B|tool|stopped": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "Qwen2.5-1.5B|tool|missing|stopped": {
+  "k": 4,
+  "n": 30,
+  "pct": 13.3333,
+  "lo": 5.3097,
+  "hi": 29.6813
+ },
+ "EXC|Qwen2.5-1.5B|tool|stopped": {
+  "k": 0,
+  "n": 30,
+  "pct": 0.0,
+  "lo": 0.0,
+  "hi": 11.3513
+ },
+ "Nemotron-30B-A3B|tool|missing|stopped": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
+ "EXC|Nemotron-30B-A3B|tool|stopped": {
+  "k": 30,
+  "n": 30,
+  "pct": 100.0,
+  "lo": 88.6487,
+  "hi": 100.0
+ },
  "GATE_ALL|bad_charge": {
   "k": 0,
   "n": 180,
   "pct": 0.0,
   "lo": 0.0,
-  "hi": 2.1
+  "hi": 2.0895
  },
+ "GATE_ALL|completed": {
+  "k": 177,
+  "n": 180,
+  "pct": 98.3333,
+  "lo": 95.2152,
+  "hi": 99.4316
+ },
+ "CALLS|trust|min": 2.0,
+ "CALLS|trust|max": 2.0,
+ "CALLS|tool|min": 2.13,
+ "CALLS|tool|max": 3.91,
+ "CALLS|tool_busy|min": 2.67,
+ "CALLS|tool_busy|max": 3.91,
+ "CALLS|shown|min": 1.33,
+ "CALLS|shown|max": 2.0,
+ "CALLS|gate|min": 1.98,
+ "CALLS|gate|max": 2.0,
  "GATE_ALL|gate_fixed": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  },
  "TRUST_ALL|bad_charge": {
   "k": 180,
   "n": 180,
   "pct": 100.0,
-  "lo": 97.9,
+  "lo": 97.9105,
   "hi": 100.0
  }
 }
