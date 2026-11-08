@@ -1,7 +1,9 @@
 """Silent 1920x1080 presentation video built from the report's own figures, with on-screen captions.
 All numbers come from results/numbers.json. No voice.
 
-Usage: .venv/bin/python -I make_video.py results out.mp4
+Usage: .venv/bin/python -I make_video.py results out.mp4 [narration_audio_dir]
+Writes results/narration.json (the spoken script, numbers from numbers.json). With an audio dir (from tts.py),
+each slide lasts at least as long as its narration plus a short pause, and the narration is mixed in.
 """
 import json, os, subprocess, sys, textwrap
 import matplotlib
@@ -10,6 +12,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 RES, OUT = sys.argv[1], sys.argv[2]
+AUD = sys.argv[3] if len(sys.argv) > 3 else None
 N = json.load(open(os.path.join(RES, "numbers.json")))
 SL = os.path.join(RES, "video_slides"); os.makedirs(SL, exist_ok=True)
 for _old in os.listdir(SL):
@@ -87,7 +90,7 @@ S.append((slide(1, "Looking it up is not stopping",
                 "When pipeline agents act on a peer's false “done”",
                 bullets=["Jungkil Bae, MoaHub (independent), Gwangju-si, South Korea",
                          "Apart Research · Swarm Alignment Sprint 2026 · Track 4: Multi-Agent Oversight and Control",
-                         "Silent walkthrough of the report. All numbers come from the run logs."]), 12))
+                         "Narrated walkthrough of the report (synthetic voice). All numbers come from the run logs."]), 12))
 S.append((slide(2, "Agents hand work to each other with one word: DONE.",
                 "What if the DONE is false?",
                 bullets=["The next agent pays, ships or merges on the strength of that sentence.",
@@ -165,12 +168,112 @@ S.append((slide(14, "Takeaway", "Audit whether agents act on their checks.", bul
     "Put a cheap non-LLM state check at hand-offs where the truth can be queried.",
     "Code and full JSONL logs: github.com/jejuolledev/swarm-false-done"]), 14))
 
+# ---- narration script (spoken English; numbers from numbers.json, read as "x out of y")
+def o(key):
+    x = N[key]; return f"{x['k']} out of {x['n']}"
+
+
+nsub = N.get(f"SUBALL|{NEM}|still_paid"); qsub = N.get(f"SUBALL|{Q15}|still_paid")
+NARR = {
+    1: "Looking it up is not stopping. This is a narrated walkthrough of our report for the Swarm Alignment Sprint, by "
+       "Jungkil Bae of MoaHub. Every number you will see comes from the run logs.",
+    2: "In a multi-agent pipeline, one agent tells the next one: done. The next agent then pays, ships, or merges on the "
+       "strength of that one sentence. Agent-written records can be wrong. In its investigation of the OpenAI and Hugging "
+       "Face hacking incident, METR reports that roughly seven percent of the transcripts it evaluated were spoofed in "
+       "some places. So we asked two questions. Does the next agent check? And when it checks, does it act on what it found?",
+    3: "We built a three-step pipeline on a fake database. The first worker is a script, and it can send a false done. The "
+       "billing agent and the shipping agent are language models. Each answers proceed, halt, or check. A state check, "
+       "written in plain code, can compare the claim with the database before anyone pays.",
+    4: f"We compared five conditions: the message only; an optional lookup, with and without time pressure; the lookup "
+       f"result always shown; and the state check. We ran three open models on one computer, for {eps:,} seeded episodes "
+       f"in total, with no paid API or cloud compute.",
+    5: f"Here is the main result, counted over distinct prompts. After looking up the reservation and seeing a wrong "
+       f"quantity, the small Qwen model with one and a half billion parameters still paid in "
+       f"{o(f'DISTALL|{Q15}|wrong_qty|still_paid')} prompts, across four wordings. On a missing reservation, its answer "
+       f"depended on the wording. Nemotron did not pay after any mismatch. The state check allowed no bad payments, which "
+       f"follows from its design.",
+    6: f"First, the baseline. With only the message, every model paid for every false report, {o('TRUST_ALL|bad_charge')}. "
+       f"That is by design, because the false message is word for word an honest one.",
+    7: f"With the lookup tool, the one point five B model looked in {o(f'{Q15}|tool|w2_checked')} episodes, and then paid "
+       f"after the mismatch in {o(f'{Q15}|tool|checked_then_charged')}. Nemotron looked every time, and paid in "
+       f"{N[f'{NEM}|tool|checked_then_charged']['k']} of {N[f'{NEM}|tool|checked_then_charged']['n']}.",
+    8: "This is a short excerpt from one logged episode. The billing agent asks to check. The database answers: not found. "
+       "The agent replies: proceed. The customer is charged. A check in the log is not a stop.",
+    9: f"Is this just one prompt? We changed only the prompt that follows the lookup. On a wrong quantity, the one point "
+       f"five B model paid under all four wordings, {o(f'DISTALL|{Q15}|wrong_qty|still_paid')}, and "
+       f"{o(f'DIST|multiturn|{Q15}|wrong_qty|still_paid')} when its own check turn stayed in the conversation. On a missing "
+       f"reservation, it paid {o(f'DIST|fresh|{Q15}|missing|still_paid')} with the main prompt, but "
+       f"{N[f'DIST3|{Q15}|missing|still_paid']['k']} of {N[f'DIST3|{Q15}|missing|still_paid']['n']} with the other "
+       f"wordings. Nemotron never paid after a mismatch, but one paraphrase made it halt "
+       f"{o(f'DIST|para2|{NEM}|false_halt')} honest orders.",
+    10: (f"We then tried subtler mismatches: a quantity off by one, the wrong product, and the wrong delivery date. "
+         f"Nemotron paid in {nsub['k']} of {nsub['n']}. The one point five B model paid in {o(f'SUBALL|{Q15}|still_paid')}."
+         if nsub else ""),
+    11: f"Time pressure did not stop Nemotron from checking. It looked in {o(f'{NEM}|tool_busy|w2_checked')} episodes. "
+        f"When the false message added an excuse, that the database replica can lag, Nemotron still looked in "
+        f"{o(f'EXC|{NEM}|tool|w2_checked')}, and paid in {N[f'EXC|{NEM}|tool|bad_charge']['k']}. For the one point five B "
+        f"model, the excuse removed its {N[f'{Q15}|tool|missing|stopped']['k']} remaining stops.",
+    12: f"The state check, which uses no language model, stopped every false report: zero bad payments out of "
+        f"{N['GATE_ALL|bad_charge']['n']}, by design. It repaired the step in all {N['GATE_ALL|gate_fixed']['k']} cases, "
+        f"and it used no more model calls than the message-only baseline.",
+    13: "Some limits. This is a toy task with one-word answers and greedy decoding. We tested two small models and one "
+        "thirty billion parameter mixture-of-experts model in four-bit, and no frontier model. The first worker is "
+        "scripted, and the robustness check covers one multi-turn version and two paraphrases.",
+    14: "The takeaway: audit whether agents act on their checks, not only whether they check. Where the truth can be "
+        "queried, put a cheap state check at the hand-off. The code and all logs are on GitHub, at jejuolledev, slash, "
+        "swarm false done.",
+}
+json.dump([{"slide": i, "text": t} for i, t in NARR.items() if t], open(os.path.join(RES, "narration.json"), "w"), indent=1)
+
+# ---- timing: with narration, each slide lasts at least narration + pause
+durs = {}
+if AUD:
+    amap = json.load(open(os.path.join(AUD, "map.json")))
+    TRIM = os.path.join(AUD, "trimmed"); os.makedirs(TRIM, exist_ok=True)
+    for idx, (p, sec) in enumerate(S, start=1):
+        num = int(os.path.basename(p)[1:3])
+        src = amap.get(str(num))
+        if not src:
+            continue
+        dst = os.path.join(TRIM, f"s{num:02d}.wav")
+        # trim leading/trailing silence, mono 44.1k
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-af",
+                        "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,"
+                        "areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse",
+                        "-ar", "44100", "-ac", "1", dst], check=True)
+        d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", dst],
+                                 capture_output=True, text=True).stdout)
+        durs[num] = (dst, d)
+    S = [(p, max(sec, round(durs[int(os.path.basename(p)[1:3])][1] + 1.6, 2)) if int(os.path.basename(p)[1:3]) in durs
+          else sec) for p, sec in S]
+
 # ---- encode: each slide as a still, short crossfades avoided (plain cuts)
 lst = os.path.join(SL, "list.txt")
 with open(lst, "w") as fh:
     for p, sec in S:
         fh.write(f"file '{os.path.abspath(p)}'\nduration {sec}\n")
+VID = OUT if not AUD else OUT + ".video.mp4"
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst,
                 "-vf", "scale=1920:1080,format=yuv420p,fps=30", "-c:v", "libx264", "-crf", "20", "-preset", "medium",
-                "-movflags", "+faststart", OUT], check=True)
+                "-movflags", "+faststart", VID], check=True)
+if AUD:
+    # one audio track: each slide's narration starts 0.6 s into the slide, padded with silence to the slide length
+    parts, t = [], 0.0
+    inputs, filt = [], []
+    for k, (p, sec) in enumerate(S):
+        num = int(os.path.basename(p)[1:3])
+        if num in durs:
+            inputs += ["-i", durs[num][0]]
+            j = len(inputs) // 2 - 1
+            filt.append(f"[{j}:a]adelay={int((t + 0.6) * 1000)}|{int((t + 0.6) * 1000)}[a{j}]")
+            parts.append(f"[a{j}]")
+        t += sec
+    filt.append("".join(parts) + f"amix=inputs={len(parts)}:normalize=0,apad=whole_dur={t},"
+                "loudnorm=I=-16:TP=-1.5:LRA=11[aout]")
+    WAV = OUT + ".audio.wav"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error"] + inputs + ["-filter_complex", ";".join(filt), "-map", "[aout]",
+                    "-ar", "44100", "-ac", "2", "-t", str(t), WAV], check=True)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", VID, "-i", WAV, "-c:v", "copy", "-c:a", "aac", "-b:a",
+                    "160k", "-shortest", "-movflags", "+faststart", OUT], check=True)
+    os.remove(VID); os.remove(WAV)
 print("total seconds", sum(s for _, s in S), "slides", len(S))

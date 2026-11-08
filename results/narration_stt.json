@@ -1,0 +1,269 @@
+[
+ {
+  "slide": 1,
+  "word_match": 0.941,
+  "numbers_script": [],
+  "numbers_heard": [],
+  "numbers_ok": true,
+  "heard": "Looking it up is not stopping. This is a narrated walkthrough of our report for the Swarm Alignment Sprint by Yunko Baye of Moahub. Every number you will see comes from the run logs."
+ },
+ {
+  "slide": 2,
+  "word_match": 0.951,
+  "numbers_script": [
+   1,
+   1,
+   1,
+   7,
+   2
+  ],
+  "numbers_heard": [
+   7,
+   1,
+   1,
+   1,
+   2
+  ],
+  "numbers_ok": true,
+  "heard": "In a multi-agent pipeline, one agent tells the next one, done. The next agent then pays, ships, or merges on the strength of that one sentence. Agent written records can be wrong. In its investigation of the open AI and hugging face hacking incident, Emmeta reports that roughly 7% of the transcripts it evaluated were spoofed in some places. So we asked two questions. Does the next agent check? And when it checks, does it act on what it found?"
+ },
+ {
+  "slide": 3,
+  "word_match": 1.0,
+  "numbers_script": [
+   3
+  ],
+  "numbers_heard": [
+   3
+  ],
+  "numbers_ok": true,
+  "heard": "We built a three-step pipeline on a fake database. The first worker is a script and it can send a false done. The billing agent and the shipping agent are language models. Each answers proceed, halt, or check. A state check written in plain code can compare the claim with the database before anyone pays."
+ },
+ {
+  "slide": 4,
+  "word_match": 0.978,
+  "numbers_script": [
+   3900,
+   5,
+   3,
+   1
+  ],
+  "numbers_heard": [
+   3900,
+   5,
+   3,
+   1
+  ],
+  "numbers_ok": true,
+  "heard": "We compared five conditions, the message only, an optional lookup with and without time pressure, the lookup result always shown, and the state check. We ran three open models on one computer for 3,900 seated episodes in total with no paid API or cloud compute."
+ },
+ {
+  "slide": 5,
+  "word_match": 0.964,
+  "numbers_script": [
+   146,
+   150,
+   1,
+   4
+  ],
+  "numbers_heard": [
+   146,
+   150,
+   1,
+   4
+  ],
+  "numbers_ok": true,
+  "heard": "Here is the main result, counted over distinct prompts. After looking up the reservation and seeing a wrong quantity, the small Quinn model with one and a half billion parameters still paid 146 out of 150 prompts across four wordings. On a missing reservation, its answer depended on the wording. Nematron did not pay after any mismatch. The state check allowed no bad payments, which follows from its design."
+ },
+ {
+  "slide": 6,
+  "word_match": 0.97,
+  "numbers_script": [
+   180,
+   180,
+   1
+  ],
+  "numbers_heard": [
+   180,
+   180,
+   1
+  ],
+  "numbers_ok": true,
+  "heard": "First, the baseline. With only the message every model paid for every false report, 180 out of 180, that is by design because the false message is word for word and honest one."
+ },
+ {
+  "slide": 7,
+  "word_match": 0.892,
+  "numbers_script": [
+   90,
+   90,
+   56,
+   60,
+   0,
+   60,
+   1,
+   5
+  ],
+  "numbers_heard": [
+   1,
+   5,
+   90,
+   90,
+   56,
+   60,
+   0,
+   60
+  ],
+  "numbers_ok": true,
+  "heard": "With the lookup tool, the 1.5B model looked in 90 out of 90 episodes and then paid after the mismatch in 56 out of 60, Nematron looked every time and paid in 0 of 60."
+ },
+ {
+  "slide": 8,
+  "word_match": 0.973,
+  "numbers_script": [
+   1
+  ],
+  "numbers_heard": [
+   1
+  ],
+  "numbers_ok": true,
+  "heard": "This is a short excerpt from one logged episode. The billing agent asked to check. The database answers not found. The agent replies, proceed. The customer is charged. A check in the log is not a stop."
+ },
+ {
+  "slide": 9,
+  "word_match": 0.919,
+  "numbers_script": [
+   146,
+   150,
+   60,
+   60,
+   26,
+   30,
+   0,
+   120,
+   22,
+   30,
+   1,
+   1,
+   5,
+   4,
+   1
+  ],
+  "numbers_heard": [
+   1,
+   5,
+   146,
+   150,
+   60,
+   60,
+   26,
+   30,
+   120,
+   22,
+   30,
+   1,
+   4,
+   0,
+   1
+  ],
+  "numbers_ok": true,
+  "heard": "Is this just one prompt? We change only the prompt that follows the lookup. On a wrong quantity, the 1.5B model paid under all four wordings, 146 out of 150, and 60 out of 60 when its own check turned stayed in the conversation. On a missing reservation, it paid 26 out of 30 with the main prompt, but zero of 120 with the other wordings. Nematron never paid after a mismatch, but one paraphrase made it halt 22 out of 30 honest orders."
+ },
+ {
+  "slide": 10,
+  "word_match": 0.886,
+  "numbers_script": [
+   0,
+   180,
+   154,
+   180,
+   1,
+   1,
+   5
+  ],
+  "numbers_heard": [
+   0,
+   180,
+   1,
+   5,
+   154,
+   180,
+   1
+  ],
+  "numbers_ok": true,
+  "heard": "We then tried subtler mismatches, a quantity off by one, the wrong product, and the wrong delivery date. Nematron paid in 0 of 180. The 1.5B model paid in 154 out of 180."
+ },
+ {
+  "slide": 11,
+  "word_match": 0.87,
+  "numbers_script": [
+   90,
+   90,
+   30,
+   30,
+   0,
+   4,
+   1,
+   5
+  ],
+  "numbers_heard": [
+   90,
+   90,
+   30,
+   30,
+   1,
+   5,
+   0,
+   4
+  ],
+  "numbers_ok": true,
+  "heard": "Time pressure did not stop Nematron from checking. It looked in 90 out of 90 episodes. When the false message added an excuse that the database replica can lag, Nematron still looked in 30 out of 30 and paid in zero. For the 1.5B model, the excuse removed its four remaining stops."
+ },
+ {
+  "slide": 12,
+  "word_match": 1.0,
+  "numbers_script": [
+   180,
+   180,
+   0
+  ],
+  "numbers_heard": [
+   180,
+   180,
+   0
+  ],
+  "numbers_ok": true,
+  "heard": "The state check, which uses no language model, stopped every false report, zero bad payments out of 180 by design. It repaired the step in all 180 cases and it used no more model calls than the message-only baseline."
+ },
+ {
+  "slide": 13,
+  "word_match": 0.981,
+  "numbers_script": [
+   1,
+   2,
+   1,
+   4,
+   1,
+   2
+  ],
+  "numbers_heard": [
+   30,
+   1,
+   2,
+   1,
+   4,
+   1,
+   2
+  ],
+  "numbers_ok": true,
+  "heard": "Some limits. This is a toy task with one word answers and greedy decoding. We tested two small models and one 30 billion parameter mixture of experts model in four-bit and no frontier model. The first worker is scripted and the robustness check covers one multi-turn version and two paraphrases."
+ },
+ {
+  "slide": 14,
+  "word_match": 0.907,
+  "numbers_script": [],
+  "numbers_heard": [],
+  "numbers_ok": true,
+  "heard": "The takeaway, audit whether agents act on their checks, not only whether they check, where the truth can be queried, put a cheap state check at the handoff. The code in all logs are on GitHub at jajula dev slash swarm false done."
+ }
+]

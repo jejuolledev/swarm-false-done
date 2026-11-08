@@ -5,3 +5,4 @@ results/video_slides/
 results/video_figs/
 *.mp4
 .omc/
+results/narration_audio/
