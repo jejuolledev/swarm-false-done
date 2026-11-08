@@ -1,0 +1,10 @@
+# CPU runs (Qwen2.5) and analysis / report building
+torch==2.15.0
+transformers==5.22.2
+accelerate==1.15.0
+matplotlib==3.11.2
+python-docx==1.2.0
+pymupdf==2.1
+# Apple-GPU run (Nemotron, MLX) -- separate environment is fine
+# mlx==0.32.3
+# mlx-lm==0.31.3
