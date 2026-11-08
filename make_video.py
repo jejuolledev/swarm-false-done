@@ -121,7 +121,7 @@ S.append((slide(8, "In the log: CHECK → NOT FOUND → PROCEED",
                          "W2:  " + w2a["completion"],
                          "DB:  " + w2b["result"],
                          "W2:  " + w2b["completion"] + "  → customer charged"], mono=True,
-                caption="Verbatim from log_Qwen2.5-1.5B-Instruct.jsonl (condition tool, fault missing, seed 0).",
+                caption="Excerpt (long lines shortened) from log_Qwen2.5-1.5B-Instruct.jsonl (condition tool, fault missing, seed 0).",
                 take="count checks that changed the decision; a CHECK in the log is not a stop."), 18))
 S.append((slide(9, "Is it one prompt? We changed only the post-lookup prompt.",
                 "Wrong quantity: paid under all four wordings.",

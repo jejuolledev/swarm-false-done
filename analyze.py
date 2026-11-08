@@ -266,6 +266,9 @@ gk = [N[f"{m}|gate|bad_charge"] for m in MODELS]
 put("GATE_ALL|bad_charge", sum(x["k"] for x in gk), sum(x["n"] for x in gk))
 gc = [r for r in res if r["cond"] == "gate" and r["fault"] in FAULTY]
 put("GATE_ALL|completed", sum(r["w2"] == "PROCEED" and r["w3"] == "PROCEED" for r in gc), len(gc))
+N["gate_halts_w2"] = sum(r["w2"] == "HALT" for r in gc)
+N["gate_halts_w3"] = sum(r["w2"] == "PROCEED" and r["w3"] == "HALT" for r in gc)
+N["gate_halt_models"] = sorted({short(r["model"]) for r in gc if not (r["w2"] == "PROCEED" and r["w3"] == "PROCEED")})
 for c in CONDS:
     vals = [N[f"{m}|{c}|calls_per_ep"] for m in MODELS]
     N[f"CALLS|{c}|min"], N[f"CALLS|{c}|max"] = min(vals), max(vals)

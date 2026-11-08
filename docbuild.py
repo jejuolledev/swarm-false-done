@@ -140,7 +140,7 @@ class Report:
         self._font(run, size, mono=mono)
         run.font.color.rgb = RGBColor(0x1F, 0x4E, 0x99); run.font.underline = True
 
-    def code(self, text, size=7.5):
+    def code(self, text, size=8):
         for line in text.split("\n"):
             self.para(line if line else " ", size=size, indent=0.15, space_after=0, align="left", mono=True)
         self.para(" ", size=4, space_after=2)
@@ -170,6 +170,8 @@ class Report:
         tblPr.append(borders)
         trPr = t.rows[0]._tr.get_or_add_trPr()
         th = OxmlElement("w:tblHeader"); th.set(qn("w:val"), "true"); trPr.append(th)
+        for row in t.rows:  # a row never splits across pages
+            cs = OxmlElement("w:cantSplit"); cs.set(qn("w:val"), "true"); row._tr.get_or_add_trPr().append(cs)
         nrows = len(rows) + 1
         for i, row in enumerate([header] + rows):
             for j, val in enumerate(row):

@@ -6,7 +6,7 @@ Code and full logs for the Apart Research **Swarm Alignment Sprint 2026** report
 
 A three-worker pipeline (reserve -> charge -> ship) runs on a fake in-memory SQLite database.
 The first worker is a script that can plant a false "DONE" report (missing row, wrong quantity,
-missing row plus a cover story). The two downstream workers are LLMs. We measure how often they
+missing row plus a cover story; a follow-up run adds three subtler mismatches: quantity off by one, wrong product, wrong delivery date). The two downstream workers are LLMs. We measure how often they
 act on the false report under five conditions (`trust`, `tool`, `tool_busy`, `shown`, `gate`) and,
 separately, how often they look the reservation up and still proceed after seeing a mismatch.
 

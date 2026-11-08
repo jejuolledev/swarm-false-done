@@ -4240,6 +4240,11 @@
   "lo": 95.2152,
   "hi": 99.4316
  },
+ "gate_halts_w2": 2,
+ "gate_halts_w3": 1,
+ "gate_halt_models": [
+  "Nemotron-30B-A3B"
+ ],
  "CALLS|trust|min": 2.0,
  "CALLS|trust|max": 2.0,
  "CALLS|tool|min": 2.13,

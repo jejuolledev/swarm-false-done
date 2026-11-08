@@ -92,6 +92,8 @@ if HAS_SUB:
 else:
     SUB_ABS = ""
 
+NUMW = {1: "one", 2: "two", 3: "three", 4: "four"}
+TIMES = {0: "never", 1: "once", 2: "twice", 3: "three times"}
 TITLE = "Looking It Up Is Not Stopping: Measuring When Pipeline Agents Act on a Peer's False “Done”"
 
 ABSTRACT = (
@@ -132,7 +134,8 @@ def build():
            "[3]. We built that testbed and used it to separate two failure modes that usually get merged: an agent that "
            "*does not look*, and an agent that *looks, sees the problem, and proceeds anyway*.")
     R.para("Our main contributions are:", space_after=2)
-    R.para(f"1. A small, reproducible testbed: three workers, a fake SQLite database, four fault types, five oversight "
+    R.para(f"1. A small, reproducible testbed: three workers, a fake SQLite database, four fault types (plus three "
+           f"subtler mismatches in a follow-up run), five oversight "
            f"conditions, three locally run open models and {eps:,} episodes in which every prompt, completion and database "
            f"read is logged; one script regenerates every number here.", indent=0.2, space_after=2)
     R.para(f"2. A measurement that splits *looked up* from *acted on the lookup*, tested across four wordings of the "
@@ -196,7 +199,9 @@ def build():
            f"so that all three models answer in one word. Decoding is greedy (at most 60 new tokens), so an episode is fully "
            f"determined by (model, condition, fault, seed, prompt wording). Seeds 0–{N['seeds'] - 1} for every cell: "
            f"{N['total_episodes']:,} episodes in the main run, {N['exc_total_episodes']:,} in the cover-story run and "
-           f"{N['rob_total_episodes']:,} in the robustness run (tool and tool_busy). The first token matching PROCEED, HALT "
+           f"{N['rob_total_episodes']:,} in the robustness run (tool and tool_busy)"
+           + (f" and {N['sub_total_episodes']:,} in the subtle-mismatch run (Section 4)" if HAS_SUB else "")
+           + f", {eps:,} in total. The first token matching PROCEED, HALT "
            f"or CHECK is the decision; anything else counts as HALT and is reported separately (it happened {unparsed} times). "
            f"Total cost: no paid API or cloud compute; all models ran locally.")
     R.para("**Metrics.** *bad payment*: W2 proceeds although the database does not hold the claimed reservation (denominator: "
@@ -236,7 +241,8 @@ def build():
              "(all gate bars; Nemotron in tool, tool_busy and shown) are drawn as error bars only; they are 0%, not missing. "
              "Error bars: 95% Wilson intervals.")
     R.figure(os.path.join(RES, "fig_logrun.png"), 5.6,
-             "Figure 4. Two real episodes, rendered verbatim from log_Qwen2.5-1.5B-Instruct.jsonl (condition tool, seed 0). "
+             "Figure 4. Two real episodes from log_Qwen2.5-1.5B-Instruct.jsonl (condition tool, seed 0; long lines shortened "
+             "with \u2026). "
              "The billing agent asks to CHECK, receives NOT FOUND (top) or a smaller quantity than ordered (bottom), and then "
              "answers PROCEED, so the customer is charged.")
     R.takeaway("count checks that changed the decision, not checks that happened; a CHECK in the log is not a stop.")
@@ -264,7 +270,11 @@ def build():
             "Table 1. Robustness of the post-lookup decision (tool and tool_busy). Counts are over distinct post-lookup "
             "prompts: in the fresh and paraphrase rows the busy note is not part of the second call, so tool and tool_busy "
             "give the same prompt and it is counted once (30 per fault); the multi-turn version keeps the busy note, so both "
-            "count (60 per fault). Denominators are prompts in which the agent looked. Multi-turn: the conversation keeps "
+            "count (60 per fault). Denominators of the two \u201cpaid after\u201d columns are prompts in which the agent looked; "
+            "the false-halt column counts honest tool and tool_busy episodes, with episodes that share a post-lookup prompt "
+            f"counted once (Qwen2.5-0.5B, fresh: {v(f'DIST|fresh|{Q05}|false_halt_checked')['n']} looked + "
+            f"{v(f'DIST|fresh|{Q05}|false_halt')['n'] - v(f'DIST|fresh|{Q05}|false_halt_checked')['n']} not looked = "
+            f"{v(f'DIST|fresh|{Q05}|false_halt')['n']}). Multi-turn: the conversation keeps "
             "the first prompt and the model's own CHECK reply, then adds the database result. Paraphrases: Appendix A.",
             size=8, keep=True)
     R.takeaway("test the check on subtle mismatches (a wrong number), not only on obvious ones (a missing record).")
@@ -310,8 +320,9 @@ def build():
     # 4.6
     R.claim("A non-LLM state check stopped every false report without extra model calls.")
     R.para(f"With the state check, bad payments were {frac(GATE)} across models and the check repaired the reservation in "
-           f"{frac(GATE_FIX)} false-report episodes; the pipeline then completed in {frac(GATE_DONE)} (the remaining halts were "
-           f"Nemotron's shipping agent, Table 4). These numbers follow from the design (the check reads ground truth and the "
+           f"{frac(GATE_FIX)} false-report episodes; the pipeline then completed in {frac(GATE_DONE)} (the remaining "
+           f"{NUMW[N['gate_halts_w2'] + N['gate_halts_w3']]} halts were all {'Nemotron' if N['gate_halt_models'] == [NEM] else 'mixed'}'s: "
+           f"{TIMES[N['gate_halts_w2']]} the billing agent, {TIMES[N['gate_halts_w3']]} the shipping agent; Table 4). These numbers follow from the design (the check reads ground truth and the "
            f"redo is honest by construction); the measured part is the usefulness cost and the number of model calls. False "
            f"halts in honest gate episodes equal those in trust for every model, and the check used no more model calls than "
            f"trust ({N['CALLS|gate|min']:.2f}–{N['CALLS|gate|max']:.2f} per episode versus {N['CALLS|trust|max']:.2f}; "
@@ -446,8 +457,8 @@ def build():
             "proceeded. Brackets: 95% Wilson intervals.", size=8)
     rows = [[x.strip() for x in line.strip("|").split("|")]
             for line in open(os.path.join(RES, "table_full.md")).read().splitlines()[2:] if line.strip()]
-    R.table(["Model", "Condition", "Fault", "n", "Bad payment", "Bad ship", "False halt", "W2 looked up", "Gate fixed",
-             "Unparsed"], rows, [1.05, 0.65, 0.9, 0.3, 0.55, 0.5, 0.5, 0.6, 0.5, 0.65],
+    R.table(["Model", "Condition", "Fault", "n", "Bad pay.", "Bad ship", "False halt", "W2 looked up", "Gate fixed",
+             "Unparsed"], rows, [1.2, 0.65, 0.85, 0.3, 0.55, 0.5, 0.5, 0.6, 0.5, 0.65],
             "Table 4. Counts per model, condition and fault (main run and cover-story run, missing_excuse). False halt "
             "counts honest episodes and, in gate, episodes whose reservation the gate repaired.", size=8)
 
